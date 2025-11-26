@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }} - StartMarket{% endblock %}
+
+{% block meta_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
+
+{% block og_title %}{{ product.name }} - StartMarket{% endblock %}
+{% block og_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
+{% block og_image %}
+{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}{% endif %}
+{% endblock %}
+
+{% block twitter_title %}{{ product.name }} - StartMarket{% endblock %}
+{% block twitter_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
+{% block twitter_image %}{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 animate-slide-up">
+        <!-- Product Image -->
+        <div class="relative">
+            {% if product.image %}
+            <div class="relative overflow-hidden rounded-xl shadow-lg">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-full h-auto">
+            </div>
+            {% else %}
+            <div
+                class="w-full h-96 bg-gradient-to-br from-charcoal-700 to-charcoal-800 rounded-xl shadow-lg flex items-center justify-center">
+                <span class="text-white text-7xl font-bold">{{ product.name|first }}</span>
+            </div>
+            {% endif %}
+            {% if product.featured %}
+            <div class="absolute top-4 right-4 accent-highlight px-4 py-2 rounded-full text-sm font-bold">Featured</div>
+            {% endif %}
+        </div>
+        <!-- Product Info -->
+        <div class="space-y-6">
+            {% if product.category %}
+            <span
+                class="inline-block bg-teal-100 text-teal-800 text-sm font-semibold px-4 py-2 rounded-full border border-teal-200">
+                {{product.category.name}}
+            </span>
+            {% endif %}
+            <h1 class="text-4xl font-bold text-charcoal-900 leading-tight">{{ product.name }}</h1>
+            <div class="flex items-baseline gap-4">
+                {% if product.is_free %}
+                <p class="text-4xl font-bold text-teal-600">FREE</p>
+                <span
+                    class="px-4 py-2 bg-teal-100 text-teal-800 text-sm font-bold rounded-full border-2 border-teal-300">100%
+                    FREE</span>
+                {% else %}
+                <p class="text-4xl font-bold text-teal-600">₹{{ product.price }}</p>
+                {% endif %}
+                {% if product.is_digital %}
+                <span
+                    class="px-3 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded-full border border-teal-200">DIGITAL</span>
+                {% endif %}
+            </div>
+            <div class="prose max-w-none">
+                <p class="text-neutral-700 text-lg leading-relaxed">{{ product.description }}</p>
+            </div>
+            <!-- Features -->
+            <div class="bg-neutral-50 rounded-xl p-6 border border-neutral-200">
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div><span class="text-charcoal-800 font-semibold">Instant Digital Download</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div><span class="text-charcoal-800 font-semibold">Lifetime Access</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div><span class="text-charcoal-800 font-semibold">Commercial License Included</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- Action Buttons -->
+            <div class="space-y-4">
+                {% if product.is_free %}
+                {% if user.is_authenticated %}
+                <a href="{% url 'store:download_product' product.id %}"
+                    class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
+                        class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>Download Free</a>
+                <div class="bg-teal-50 border-2 border-teal-200 rounded-xl p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-teal-900 font-bold text-lg">Free Product</p>
+                            <p class="text-teal-700 text-sm">Instant download - no payment required</p>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <a href="{% url 'accounts:login' %}"
+                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
+                        to Download Free</span></a>
+                <div class="bg-ivory-50 border-2 border-ivory-200 rounded-xl p-4">
+                    <p class="text-charcoal-800 font-semibold text-center">This product is completely free! Just login
+                        to download.</p>
+                </div>
+                {% endif %}
+                {% elif user.is_authenticated %}
+                {% if has_purchased %}
+                <a href="{% url 'store:download_product' product.id %}"
+                    class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
+                        class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>Download Now</a>
+                <div class="bg-teal-50 border-2 border-teal-200 rounded-xl p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-teal-900 font-bold text-lg">You own this product</p>
+                            <p class="text-teal-700 text-sm">Click above to download anytime</p>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <a href="{% url 'store:buy_now' product.id %}"
+                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Buy
+                        Now</span><span class="text-xl">₹{{ product.price }}</span></a>
+                {% endif %}
+                {% else %}
+                <a href="{% url 'accounts:login' %}"
+                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
+                        to Buy</span><span class="text-xl">₹{{ product.price }}</span></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- Related Products -->
+    {% if related_products %}
+    <section class="mt-24">
+        <div class="flex items-center justify-between mb-10">
+            <h2 class="text-3xl font-bold text-charcoal-900">More Like This</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full"></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for related_product in related_products %}
+            <div class="card-hover group cursor-pointer"
+                onclick="window.location.href='{% url 'store:product_detail' related_product.slug %}'">
+                {% if related_product.image %}
+                <div class="relative overflow-hidden"><img src="{{ related_product.image.url }}"
+                        alt="{{ related_product.name }}"
+                        class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                </div>
+                {% else %}
+                <div
+                    class="w-full h-48 bg-gradient-to-br from-charcoal-600 to-charcoal-700 flex items-center justify-center">
+                    <span class="text-white text-4xl font-bold">{{ related_product.name|first }}</span>
+                </div>
+                {% endif %}
+                <div class="p-5">
+                    <h3 class="font-bold text-charcoal-900 mb-2 text-lg group-hover:text-teal-600 transition-colors">{{
+                        related_product.name|truncatewords:5 }}</h3>
+                    <p class="text-xl font-bold text-teal-600">₹{{ related_product.price }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</div>
+{% endblock %}

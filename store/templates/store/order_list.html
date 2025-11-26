@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Orders - Premium Digital Store{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">My Orders</h1>
+
+    {% if orders %}
+    <div class="space-y-4">
+        {% for order in orders %}
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center gap-4 mb-2">
+                        <h3 class="text-lg font-semibold text-gray-900">Order #{{ order.id|truncatechars:8 }}</h3>
+                        <span class="px-3 py-1 rounded-full text-sm font-semibold
+                            {% if order.status == 'completed' %}bg-green-100 text-green-800
+                            {% elif order.status == 'processing' %}bg-blue-100 text-blue-800
+                            {% elif order.status == 'cancelled' %}bg-red-100 text-red-800
+                            {% else %}bg-yellow-100 text-yellow-800{% endif %}">
+                            {{ order.get_status_display }}
+                        </span>
+                    </div>
+                    <p class="text-gray-600 text-sm">Placed on {{ order.created_at|date:"F d, Y" }}</p>
+                    <p class="text-gray-600 text-sm">{{ order.items.count }} item{{ order.items.count|pluralize }}</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-primary-600">₹{{ order.total_amount }}</p>
+                    </div>
+                    <a href="{% url 'store:order_detail' order.id %}" class="btn-primary">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-12">
+        <svg class="w-24 h-24 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">No orders yet</h2>
+        <p class="text-gray-600 mb-6">Start shopping to see your orders here!</p>
+        <a href="{% url 'store:product_list' %}" class="btn-primary">Browse Products</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+

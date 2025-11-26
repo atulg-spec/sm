@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-neutral-50;
+  }
+  
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Primary buttons - Teal (30%) */
+  .btn-primary {
+    @apply bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-neutral-100 hover:bg-neutral-200 text-charcoal-800 font-semibold py-3 px-6 rounded-lg border border-neutral-300 transition-all duration-300;
+  }
+  
+  .btn-success {
+    @apply bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg active:scale-95;
+  }
+  
+  /* Cards - Neutral background with Charcoal text */
+  .card {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-neutral-200;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Inputs - Neutral with Teal focus */
+  .input-field {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all bg-white;
+  }
+  
+  /* Text gradients - Teal accent */
+  .gradient-text {
+    @apply bg-gradient-to-r from-teal-600 to-teal-700 bg-clip-text text-transparent;
+  }
+  
+  /* Ivory accent highlights */
+  .accent-highlight {
+    @apply bg-ivory-100 text-charcoal-800 border border-ivory-300;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
