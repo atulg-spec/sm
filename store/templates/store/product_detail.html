@@ -101,7 +101,16 @@
             <div class="space-y-4">
                 {% if product.is_free %}
                 {% if user.is_authenticated %}
-                <a href="{% url 'store:download_product' product.id %}"
+                <div class="fixed bg-white/90 bottom-0 z-10 left-0 right-0 p-3 md:px-80">
+                    <a href="{% if item.product.digital_file %}{{item.product.digital_file.url}}{% endif %}"
+                        class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
+                            class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>Download Free</a>
+                </div>
+
+                <a href="{% if item.product.digital_file %}{{item.product.digital_file.url}}{% endif %}"
                     class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
                         class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -123,6 +132,11 @@
                     </div>
                 </div>
                 {% else %}
+                <div class="fixed bg-white/90 bottom-0 z-10 left-0 right-0 p-3 md:px-80">
+                    <a href="{% url 'accounts:login' %}"
+                        class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
+                        to Download Free</span></a>
+                </div>
                 <a href="{% url 'accounts:login' %}"
                     class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
                         to Download Free</span></a>
@@ -133,7 +147,15 @@
                 {% endif %}
                 {% elif user.is_authenticated %}
                 {% if has_purchased %}
-                <a href="{% url 'store:download_product' product.id %}"
+                <div class="fixed bg-white/90 bottom-0 z-10 left-0 right-0 p-3 md:px-80">
+                    <a href="{% if item.product.digital_file %}{{item.product.digital_file.url}}{% endif %}"
+                        class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
+                            class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>Download Now</a>
+                </div>
+                <a href="{% if item.product.digital_file %}{{item.product.digital_file.url}}{% endif %}"
                     class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
                         class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -154,15 +176,26 @@
                         </div>
                     </div>
                 </div>
+
                 {% else %}
+                <div class="fixed bg-white/90 bottom-0 z-10 left-0 right-0 p-3 md:px-80">
+                    <a href="{% url 'store:buy_now' product.id %}"
+                        class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Buy
+                            Now</span><span class="text-xl">₹{{ product.price }}</span></a>
+                </div>
                 <a href="{% url 'store:buy_now' product.id %}"
-                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3 fixed-bottom-mobile"><span>Buy
-                        Now</span><span class="text-xl">₹{{ product.price }}</span></a>
+                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Buy
+                    Now</span><span class="text-xl">₹{{ product.price }}</span></a>
                 {% endif %}
                 {% else %}
+                <div class="fixed bg-white/90 bottom-0 z-10 left-0 right-0 p-3 md:px-80">
+                    <a href="{% url 'accounts:login' %}"
+                        class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
+                            to Buy</span><span class="text-xl">₹{{ product.price }}</span></a>
+                </div>
                 <a href="{% url 'accounts:login' %}"
-                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3 fixed-bottom-mobile"><span>Login
-                        to Buy</span><span class="text-xl">₹{{ product.price }}</span></a>
+                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
+                    to Buy</span><span class="text-xl">₹{{ product.price }}</span></a>
                 {% endif %}
             </div>
         </div>
@@ -204,7 +237,7 @@
 
 <style>
 @media (max-width: 768px) {
-    .fixed-bottom-mobile {
+     {
         position: fixed;
         bottom: 0;
         left: 0;
