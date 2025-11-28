@@ -1,0 +1,348 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}How to Create Your Account - StartMarket Help{% endblock %}
+
+{% block meta_description %}Step-by-step guide to registering and setting up your StartMarket account for the first time. Learn about account creation, verification, and getting started.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-charcoal-950 text-white py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center animate-slide-up">
+            <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                Creating Your<br>
+                <span class="text-teal-400">Account</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto">
+                Step-by-step guide to get started with StartMarket
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section class="py-8 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="{% url 'store:home' %}" class="inline-flex items-center text-sm font-medium text-neutral-700 hover:text-teal-600">
+                        <svg class="w-3 h-3 mr-2.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2A1 1 0 0 0 1 10.414V19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-5a1 1 0 0 0 1-1h4a1 1 0 0 0 1 1v5a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-8.586A1 1 0 0 0 19.707 9.293Z"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-neutral-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        <a href="{% url 'store:help_center' %}" class="ml-1 text-sm font-medium text-neutral-700 hover:text-teal-600 md:ml-2">Help Center</a>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-neutral-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        <span class="ml-1 text-sm font-medium text-neutral-500 md:ml-2">Creating Your Account</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Introduction -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-6">Getting Started with StartMarket</h2>
+            <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+                Creating an account on StartMarket is quick and easy. Your account gives you access to purchase
+                digital products, track your orders, manage downloads, and enjoy a personalized shopping experience.
+                Follow the steps below to create your account.
+            </p>
+            <div class="bg-teal-50 border border-teal-200 rounded-lg p-6">
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-teal-900 mb-2">Account Registration is Free</h3>
+                        <p class="text-teal-800 text-sm">Creating an account costs nothing and gives you full access to all features. No hidden fees or charges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step by Step Guide -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Step-by-Step Account Creation</h2>
+
+            <!-- Step 1 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        1
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Navigate to the Registration Page</h3>
+                        <p class="text-neutral-700 mb-4">
+                            Start by visiting the StartMarket website. Look for the "Sign Up" button in the top navigation bar,
+                            usually located in the top-right corner of the page.
+                        </p>
+                        <div class="bg-white border border-neutral-300 rounded-lg p-4 mb-4">
+                            <p class="text-sm text-neutral-600 mb-2">You can find the Sign Up button here:</p>
+                            <img src="{% static 'img/signup-location.png' %}" alt="Sign Up button location" class="border border-neutral-200 rounded" onerror="this.style.display='none'">
+                            <p class="text-sm text-neutral-500 italic">Top navigation bar - right side</p>
+                        </div>
+                        <p class="text-sm text-neutral-600">
+                            <strong>Alternative:</strong> You can also click "Login" and then look for a "Create Account" or "Sign Up" link on the login page.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        2
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Fill Out the Registration Form</h3>
+                        <p class="text-neutral-700 mb-4">
+                            On the registration page, you'll need to provide some basic information to create your account.
+                        </p>
+
+                        <div class="space-y-4 mb-4">
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-2">Required Information:</h4>
+                                <ul class="space-y-2 text-sm text-neutral-700">
+                                    <li><strong>Email Address:</strong> A valid email address you'll have access to. This will be your username.</li>
+                                    <li><strong>Password:</strong> Create a strong password (minimum 8 characters, including letters and numbers).</li>
+                                    <li><strong>Confirm Password:</strong> Re-enter your password to ensure accuracy.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-2">Optional Information:</h4>
+                                <ul class="space-y-2 text-sm text-neutral-700">
+                                    <li><strong>Full Name:</strong> Your first and last name (can be updated later).</li>
+                                    <li><strong>Newsletter:</strong> Check this box if you want to receive product updates and promotions.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <div>
+                                    <h4 class="font-semibold text-amber-900 mb-1">Password Requirements</h4>
+                                    <p class="text-amber-800 text-sm">Use at least 8 characters with a mix of uppercase, lowercase, numbers, and special characters for security.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        3
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Accept Terms and Conditions</h3>
+                        <p class="text-neutral-700 mb-4">
+                            Before creating your account, you'll need to agree to our Terms of Service and Privacy Policy.
+                        </p>
+
+                        <div class="bg-white border border-neutral-300 rounded-lg p-4 mb-4">
+                            <h4 class="font-semibold text-charcoal-900 mb-2">Required Agreements:</h4>
+                            <ul class="space-y-2 text-sm text-neutral-700">
+                                <li><strong>Terms of Service:</strong> Rules and guidelines for using StartMarket</li>
+                                <li><strong>Privacy Policy:</strong> How we collect and use your personal information</li>
+                            </ul>
+                        </div>
+
+                        <p class="text-sm text-neutral-600 mb-4">
+                            We recommend reading these documents to understand your rights and responsibilities.
+                            Links to both documents are provided on the registration form.
+                        </p>
+
+                        <div class="flex items-start space-x-3 bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-blue-900 mb-1">Why These Agreements Matter</h4>
+                                <p class="text-blue-800 text-sm">These documents protect both you and StartMarket, outlining acceptable use and data handling practices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        4
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Verify Your Email Address</h3>
+                        <p class="text-neutral-700 mb-4">
+                            After submitting the registration form, you'll receive a verification email at the address you provided.
+                        </p>
+
+                        <div class="bg-white border border-neutral-300 rounded-lg p-4 mb-4">
+                            <h4 class="font-semibold text-charcoal-900 mb-2">What to Expect:</h4>
+                            <ul class="space-y-2 text-sm text-neutral-700">
+                                <li>Subject line: "Verify your StartMarket account" or similar</li>
+                                <li>From: StartMarket support email</li>
+                                <li>Contains: Verification link and temporary account details</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-900 mb-2">✓ Check Your Inbox</h4>
+                                <p class="text-green-800 text-sm">Look for emails from support@startmarket.in</p>
+                            </div>
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-900 mb-2">✓ Check Spam Folder</h4>
+                                <p class="text-green-800 text-sm">Sometimes verification emails end up in spam</p>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-neutral-600">
+                            <strong>Important:</strong> You must verify your email before you can access all account features.
+                            The verification link is valid for 24 hours.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        5
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Complete Your Profile (Optional)</h3>
+                        <p class="text-neutral-700 mb-4">
+                            After verification, you can enhance your account by adding more details to your profile.
+                        </p>
+
+                        <div class="bg-white border border-neutral-300 rounded-lg p-4 mb-4">
+                            <h4 class="font-semibold text-charcoal-900 mb-2">Profile Enhancement Options:</h4>
+                            <ul class="space-y-2 text-sm text-neutral-700">
+                                <li><strong>Profile Picture:</strong> Upload a photo to personalize your account</li>
+                                <li><strong>Bio:</strong> Add a short description about yourself or your business</li>
+                                <li><strong>Social Links:</strong> Connect your social media profiles</li>
+                                <li><strong>Notification Preferences:</strong> Customize what emails you receive</li>
+                            </ul>
+                        </div>
+
+                        <p class="text-sm text-neutral-600">
+                            These steps are optional but help us provide you with a more personalized experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Troubleshooting Account Creation</h2>
+
+            <div class="space-y-6">
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-red-900 mb-3">Email Already Registered</h3>
+                    <p class="text-red-800 mb-3">If you see "Email already exists" error:</p>
+                    <ul class="space-y-2 text-sm text-red-800">
+                        <li>• Try logging in with that email instead</li>
+                        <li>• Use the "Forgot Password" link if you can't remember your password</li>
+                        <li>• Contact support if you believe this is an error</li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-red-900 mb-3">Didn't Receive Verification Email</h3>
+                    <p class="text-red-800 mb-3">Common solutions:</p>
+                    <ul class="space-y-2 text-sm text-red-800">
+                        <li>• Check your spam/junk folder</li>
+                        <li>• Wait 5-10 minutes and check again</li>
+                        <li>• Add support@startmarket.in to your contacts</li>
+                        <li>• Try registering again with the same email</li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-red-900 mb-3">Password Too Weak</h3>
+                    <p class="text-red-800 mb-3">Password requirements:</p>
+                    <ul class="space-y-2 text-sm text-red-800">
+                        <li>• Minimum 8 characters long</li>
+                        <li>• At least one uppercase letter</li>
+                        <li>• At least one lowercase letter</li>
+                        <li>• At least one number</li>
+                        <li>• At least one special character (!@#$%^&*)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- What Happens Next -->
+        <div class="bg-teal-600 text-white rounded-xl p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-6">What Happens After Account Creation?</h2>
+            <p class="text-lg mb-6 leading-relaxed">
+                Once your account is verified and set up, you can start exploring StartMarket's features:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">🛍️ Browse & Purchase</h3>
+                    <p class="text-sm text-teal-100">Explore our collection of digital products and make secure purchases.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">📥 Download Products</h3>
+                    <p class="text-sm text-teal-100">Access and download your purchased products anytime.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">📊 Order History</h3>
+                    <p class="text-sm text-teal-100">Track all your orders and view purchase history.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">⚙️ Account Management</h3>
+                    <p class="text-sm text-teal-100">Update your profile, change settings, and manage preferences.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Need More Help -->
+        <div class="text-center bg-neutral-50 border border-neutral-200 rounded-xl p-8">
+            <h2 class="text-2xl font-bold text-charcoal-900 mb-4">Still Need Help?</h2>
+            <p class="text-neutral-600 mb-6">
+                If you encounter any issues during account creation or have questions about your account,
+                our support team is here to help.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'store:contact' %}" class="btn-primary">Contact Support</a>
+                <a href="{% url 'store:help_center' %}" class="border-2 border-teal-600 text-teal-600 font-semibold py-3 px-8 rounded-lg hover:bg-teal-600 hover:text-white transition-colors">
+                    Back to Help Center
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

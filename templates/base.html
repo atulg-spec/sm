@@ -34,6 +34,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+
     {% block extra_css %}{% endblock %}
 </head>
 
@@ -142,17 +144,17 @@
                         <li><a href="{% url 'store:home' %}" class="hover:text-teal-400 transition-colors">Home</a></li>
                         <li><a href="{% url 'store:product_list' %}"
                                 class="hover:text-teal-400 transition-colors">Products</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">About</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Contact</a></li>
+                        <li><a href="{% url 'store:about' %}" class="hover:text-teal-400 transition-colors">About</a></li>
+                        <li><a href="{% url 'store:contact' %}" class="hover:text-teal-400 transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold mb-4 text-white">Support</h4>
                     <ul class="space-y-3 text-neutral-400">
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Help Center</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">FAQs</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Terms</a></li>
+                        <li><a href="{% url 'store:help_center' %}" class="hover:text-teal-400 transition-colors">Help Center</a></li>
+                        <li><a href="{% url 'store:faqs' %}" class="hover:text-teal-400 transition-colors">FAQs</a></li>
+                        <li><a href="{% url 'store:privacy_policy' %}" class="hover:text-teal-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="{% url 'store:terms' %}" class="hover:text-teal-400 transition-colors">Terms</a></li>
                     </ul>
                 </div>
                 <div>
@@ -186,7 +188,7 @@
                 </div>
             </div>
             <div class="border-t border-charcoal-800 mt-12 pt-8 text-center">
-                <p class="text-neutral-500">&copy; 2024 StartMarket. All rights reserved.</p>
+                <p class="text-neutral-500">&copy; 2025 StartMarket. All rights reserved.</p>
             </div>
         </div>
     </footer>

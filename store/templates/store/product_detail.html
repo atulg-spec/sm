@@ -153,12 +153,12 @@
                 </div>
                 {% else %}
                 <a href="{% url 'store:buy_now' product.id %}"
-                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Buy
+                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3 fixed-bottom-mobile"><span>Buy
                         Now</span><span class="text-xl">₹{{ product.price }}</span></a>
                 {% endif %}
                 {% else %}
                 <a href="{% url 'accounts:login' %}"
-                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
+                    class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3 fixed-bottom-mobile"><span>Login
                         to Buy</span><span class="text-xl">₹{{ product.price }}</span></a>
                 {% endif %}
             </div>
@@ -187,8 +187,9 @@
                 </div>
                 {% endif %}
                 <div class="p-5">
-                    <h3 class="font-bold text-charcoal-900 mb-2 text-lg group-hover:text-teal-600 transition-colors">{{
-                        related_product.name|truncatewords:5 }}</h3>
+                    <h3 class="font-bold text-charcoal-900 mb-2 text-lg group-hover:text-teal-600 transition-colors">
+                        {{ related_product.name|truncatewords:5 }}
+                    </h3>
                     <p class="text-xl font-bold text-teal-600">₹{{ related_product.price }}</p>
                 </div>
             </div>
@@ -197,4 +198,23 @@
     </section>
     {% endif %}
 </div>
+
+<style>
+@media (max-width: 768px) {
+    .fixed-bottom-mobile {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 0;
+        z-index: 50;
+        margin: 0;
+    }
+    
+    body {
+        padding-bottom: 80px;
+    }
+}
+</style>
 {% endblock %}

@@ -1,0 +1,569 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Troubleshooting Download Issues - StartMarket Help{% endblock %}
+
+{% block meta_description %}Fix common download problems on StartMarket. Step-by-step solutions for download errors, slow speeds, corrupted files, and technical issues.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-charcoal-950 text-white py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center animate-slide-up">
+            <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                Troubleshooting<br>
+                <span class="text-teal-400">Downloads</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto">
+                Fix common download problems and get your products quickly
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section class="py-8 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="{% url 'store:home' %}" class="inline-flex items-center text-sm font-medium text-neutral-700 hover:text-teal-600">
+                        <svg class="w-3 h-3 mr-2.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2A1 1 0 0 0 1 10.414V19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-5a1 1 0 0 0 1-1h4a1 1 0 0 0 1 1v5a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-8.586A1 1 0 0 0 19.707 9.293Z"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-neutral-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        <a href="{% url 'store:help_center' %}" class="ml-1 text-sm font-medium text-neutral-700 hover:text-teal-600 md:ml-2">Help Center</a>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-neutral-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        <span class="ml-1 text-sm font-medium text-neutral-500 md:ml-2">Troubleshooting Downloads</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Introduction -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-6">Download Troubleshooting Guide</h2>
+            <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+                Having trouble downloading your purchased products? Don't worry! Most download issues have simple solutions.
+                Follow this comprehensive guide to resolve common problems and get your digital products quickly.
+            </p>
+            <div class="bg-teal-50 border border-teal-200 rounded-lg p-6">
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.944l4.95 4.95M12 2.944L7.05 7.894M12 21.056l-4.95-4.95M12 21.056l4.95-4.95"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-teal-900 mb-2">Quick Diagnosis Tool</h3>
+                        <p class="text-teal-800 text-sm">Use our interactive troubleshooter below to identify and fix your specific download issue.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Troubleshooter -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Interactive Troubleshooter</h2>
+
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8">
+                <h3 class="text-xl font-semibold text-charcoal-900 mb-6">What's your download problem?</h3>
+
+                <div class="space-y-4">
+                    <div class="troubleshooter-option bg-white border border-neutral-300 rounded-lg p-4 cursor-pointer hover:border-teal-400 transition-colors" data-issue="no-start">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-neutral-200 rounded-full flex items-center justify-center text-xs">?</div>
+                            <span class="text-charcoal-900 font-medium">Download won't start or button doesn't work</span>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooter-option bg-white border border-neutral-300 rounded-lg p-4 cursor-pointer hover:border-teal-400 transition-colors" data-issue="slow">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-neutral-200 rounded-full flex items-center justify-center text-xs">?</div>
+                            <span class="text-charcoal-900 font-medium">Download is very slow or stuck</span>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooter-option bg-white border border-neutral-300 rounded-lg p-4 cursor-pointer hover:border-teal-400 transition-colors" data-issue="corrupted">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-neutral-200 rounded-full flex items-center justify-center text-xs">?</div>
+                            <span class="text-charcoal-900 font-medium">File appears corrupted or won't open</span>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooter-option bg-white border border-neutral-300 rounded-lg p-4 cursor-pointer hover:border-teal-400 transition-colors" data-issue="blocked">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-neutral-200 rounded-full flex items-center justify-center text-xs">?</div>
+                            <span class="text-charcoal-900 font-medium">Browser blocks download or shows security warning</span>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooter-option bg-white border border-neutral-300 rounded-lg p-4 cursor-pointer hover:border-teal-400 transition-colors" data-issue="storage">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-neutral-200 rounded-full flex items-center justify-center text-xs">?</div>
+                            <span class="text-charcoal-900 font-medium">Not enough storage space on device</span>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooter-option bg-white border border-neutral-300 rounded-lg p-4 cursor-pointer hover:border-teal-400 transition-colors" data-issue="network">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-neutral-200 rounded-full flex items-center justify-center text-xs">?</div>
+                            <span class="text-charcoal-900 font-medium">Network connection issues</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="solution-container" class="mt-6 hidden">
+                    <div class="bg-teal-50 border border-teal-200 rounded-lg p-6">
+                        <h4 class="text-lg font-semibold text-teal-900 mb-4" id="solution-title"></h4>
+                        <div id="solution-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common Issues & Solutions -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Common Issues & Solutions</h2>
+
+            <!-- Issue 1 -->
+            <div class="bg-white border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-2">Download Won't Start</h3>
+                        <p class="text-neutral-700">The download button doesn't respond or nothing happens when clicked.</p>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                    <h4 class="font-semibold text-charcoal-900 mb-4">Solutions:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">1. Check Your Login Status</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Ensure you're logged into your account</li>
+                                <li>• Try refreshing the page</li>
+                                <li>• Clear browser cache and cookies</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">2. Try Different Browser</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Use Chrome, Firefox, or Safari</li>
+                                <li>• Disable browser extensions temporarily</li>
+                                <li>• Try incognito/private mode</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">3. Check Pop-up Blockers</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Disable pop-up blockers</li>
+                                <li>• Allow pop-ups for StartMarket</li>
+                                <li>• Add site to trusted sites</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">4. Use Direct Links</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Check your email for download links</li>
+                                <li>• Right-click and "Save link as"</li>
+                                <li>• Copy URL and paste in new tab</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Issue 2 -->
+            <div class="bg-white border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-2">Slow Download Speed</h3>
+                        <p class="text-neutral-700">Download is taking too long or appears stuck.</p>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                    <h4 class="font-semibold text-charcoal-900 mb-4">Solutions:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">1. Check Internet Connection</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Test speed at speedtest.net</li>
+                                <li>• Restart your router/modem</li>
+                                <li>• Try wired connection if possible</li>
+                                <li>• Avoid peak hours (evenings)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">2. Close Background Apps</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Close streaming services</li>
+                                <li>• Pause other downloads</li>
+                                <li>• Limit browser tabs</li>
+                                <li>• Disable bandwidth-heavy apps</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">3. Change Download Location</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Download to local drive (not network)</li>
+                                <li>• Avoid external drives during download</li>
+                                <li>• Check available disk space</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">4. Server Load</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Try downloading during off-peak hours</li>
+                                <li>• Large files may take time</li>
+                                <li>• Be patient with big downloads</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Issue 3 -->
+            <div class="bg-white border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-2">Corrupted or Incomplete Files</h3>
+                        <p class="text-neutral-700">Downloaded file won't open or appears damaged.</p>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                    <h4 class="font-semibold text-charcoal-900 mb-4">Solutions:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">1. Redownload the File</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Delete the corrupted file</li>
+                                <li>• Clear browser cache</li>
+                                <li>• Download again from your account</li>
+                                <li>• Use a different browser</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">2. Check File Size</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Compare with product description</li>
+                                <li>• Incomplete downloads are smaller</li>
+                                <li>• Contact support if size is wrong</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">3. Antivirus Scan</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Temporarily disable antivirus</li>
+                                <li>• Add StartMarket to exclusions</li>
+                                <li>• Scan file after download</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">4. File Repair</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Try opening with different software</li>
+                                <li>• Check if file type is correct</li>
+                                <li>• Contact product creator for help</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Issue 4 -->
+            <div class="bg-white border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-2">Browser Security Blocks Download</h3>
+                        <p class="text-neutral-700">Browser shows security warning or blocks the download.</p>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                    <h4 class="font-semibold text-charcoal-900 mb-4">Solutions by Browser:</h4>
+                    <div class="space-y-6">
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">Chrome:</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Click the download arrow → "Keep" or "Allow"</li>
+                                <li>• Go to chrome://settings/downloads → Enable "Ask where to save"</li>
+                                <li>• Add startmarket.in to trusted sites</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">Firefox:</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Click the download button in toolbar</li>
+                                <li>• Choose "Allow downloads from this site"</li>
+                                <li>• Disable "Block dangerous downloads"</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">Safari:</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Safari → Preferences → Websites → Downloads</li>
+                                <li>• Allow downloads from startmarket.in</li>
+                                <li>• Check "Always allow" for the site</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-neutral-900 mb-2">Edge:</h5>
+                            <ul class="space-y-1 text-sm text-neutral-700">
+                                <li>• Click "Keep" when prompted</li>
+                                <li>• Settings → Cookies and site permissions</li>
+                                <li>• Add startmarket.in to allowed sites</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Troubleshooting -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Advanced Troubleshooting</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-4">Network & Connectivity Issues</h3>
+                    <ul class="space-y-3 text-sm text-neutral-700">
+                        <li><strong>VPN Issues:</strong> Try disabling VPN temporarily</li>
+                        <li><strong>Firewall:</strong> Add StartMarket to firewall exceptions</li>
+                        <li><strong>Proxy Settings:</strong> Check if proxy is blocking downloads</li>
+                        <li><strong>DNS:</strong> Try changing DNS to 8.8.8.8</li>
+                        <li><strong>Mobile Data:</strong> Downloads may be restricted on cellular</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-4">System & Software Issues</h3>
+                    <ul class="space-y-3 text-sm text-neutral-700">
+                        <li><strong>Disk Space:</strong> Free up space (need 2x file size)</li>
+                        <li><strong>Permissions:</strong> Check folder write permissions</li>
+                        <li><strong>Software Conflicts:</strong> Close download managers/IDM</li>
+                        <li><strong>System Updates:</strong> Ensure OS is up to date</li>
+                        <li><strong>Browser Updates:</strong> Use latest browser version</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prevention Tips -->
+        <div class="bg-teal-600 text-white rounded-xl p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-6">Prevent Future Download Issues</h2>
+            <p class="text-lg mb-6 leading-relaxed">
+                Follow these best practices to avoid download problems in the future:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">🔄 Keep Software Updated</h3>
+                    <p class="text-sm text-teal-100">Regularly update your browser, OS, and antivirus software.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">📁 Organize Downloads</h3>
+                    <p class="text-sm text-teal-100">Create dedicated folders for different file types and projects.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">💾 Monitor Storage</h3>
+                    <p class="text-sm text-teal-100">Keep adequate free space on your download drive.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">🌐 Stable Connection</h3>
+                    <p class="text-sm text-teal-100">Use reliable internet connection for large downloads.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">🛡️ Security Settings</h3>
+                    <p class="text-sm text-teal-100">Configure browser security settings appropriately.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">📋 Backup Downloads</h3>
+                    <p class="text-sm text-teal-100">Keep copies of important files on external storage.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Support -->
+        <div class="text-center bg-neutral-50 border border-neutral-200 rounded-xl p-8">
+            <h2 class="text-2xl font-bold text-charcoal-900 mb-4">Still Having Issues?</h2>
+            <p class="text-neutral-600 mb-6">
+                If none of these solutions work, our support team can help you troubleshoot your specific situation.
+                Please include your order number and describe the exact problem you're experiencing.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'store:contact' %}" class="btn-primary">Contact Support</a>
+                <a href="{% url 'store:help_downloading_products' %}" class="border-2 border-teal-600 text-teal-600 font-semibold py-3 px-8 rounded-lg hover:bg-teal-600 hover:text-white transition-colors">
+                    Download Guide
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Simple interactive troubleshooter
+document.addEventListener('DOMContentLoaded', function() {
+    const options = document.querySelectorAll('.troubleshooter-option');
+    const solutionContainer = document.getElementById('solution-container');
+    const solutionTitle = document.getElementById('solution-title');
+    const solutionContent = document.getElementById('solution-content');
+
+    const solutions = {
+        'no-start': {
+            title: 'Download Won\'t Start - Quick Fix',
+            content: `
+                <ol class="list-decimal list-inside space-y-2 text-teal-800">
+                    <li>Ensure you're logged into your StartMarket account</li>
+                    <li>Try right-clicking the download link and selecting "Save link as"</li>
+                    <li>Disable any pop-up blockers for startmarket.in</li>
+                    <li>Try using a different web browser</li>
+                    <li>Clear your browser cache and cookies</li>
+                </ol>
+                <p class="mt-4 text-sm text-teal-700">If these don't work, check your email for the direct download link sent after purchase.</p>
+            `
+        },
+        'slow': {
+            title: 'Slow Download Speed - Optimization Tips',
+            content: `
+                <ol class="list-decimal list-inside space-y-2 text-teal-800">
+                    <li>Check your internet speed at speedtest.net (should be at least 5 Mbps)</li>
+                    <li>Close other applications using bandwidth (Netflix, other downloads)</li>
+                    <li>Try downloading during off-peak hours (before 9 AM or after 11 PM)</li>
+                    <li>Use a wired Ethernet connection instead of Wi-Fi</li>
+                    <li>Download to your local hard drive, not an external or network drive</li>
+                </ol>
+            `
+        },
+        'corrupted': {
+            title: 'Corrupted File - Recovery Steps',
+            content: `
+                <ol class="list-decimal list-inside space-y-2 text-teal-800">
+                    <li>Delete the corrupted file from your computer</li>
+                    <li>Go back to your StartMarket account and click download again</li>
+                    <li>Try downloading from a different browser or device</li>
+                    <li>Temporarily disable your antivirus software during download</li>
+                    <li>Check that you have enough free disk space (2x the file size)</li>
+                </ol>
+                <p class="mt-4 text-sm text-teal-700">If the file is still corrupted, contact our support team with your order number.</p>
+            `
+        },
+        'blocked': {
+            title: 'Browser Security Block - Allow Downloads',
+            content: `
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold text-teal-900">For Chrome:</h4>
+                        <p class="text-sm text-teal-800">Click the download arrow in the toolbar, then select "Keep" or "Allow".</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-teal-900">For Firefox:</h4>
+                        <p class="text-sm text-teal-800">Click the download button and choose "Allow downloads from this site".</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-teal-900">For All Browsers:</h4>
+                        <ul class="list-disc list-inside text-sm text-teal-800 space-y-1">
+                            <li>Add startmarket.in to your trusted sites</li>
+                            <li>Disable download blocking extensions</li>
+                            <li>Use incognito/private browsing mode</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        },
+        'storage': {
+            title: 'Insufficient Storage Space - Free Up Space',
+            content: `
+                <ol class="list-decimal list-inside space-y-2 text-teal-800">
+                    <li>Check available space on your download drive (need at least 2x file size)</li>
+                    <li>Empty your Recycle Bin/Trash</li>
+                    <li>Delete temporary files and browser cache</li>
+                    <li>Move old downloads to external storage</li>
+                    <li>Use Disk Cleanup (Windows) or Storage Management (macOS)</li>
+                </ol>
+                <p class="mt-4 text-sm text-teal-700">Large design files may need 500MB-2GB of free space. Consider downloading to an external drive.</p>
+            `
+        },
+        'network': {
+            title: 'Network Connection Issues - Connectivity Fixes',
+            content: `
+                <ol class="list-decimal list-inside space-y-2 text-teal-800">
+                    <li>Restart your router and modem (wait 30 seconds between)</li>
+                    <li>Test your connection speed at fast.com or speedtest.net</li>
+                    <li>Try connecting to a different Wi-Fi network</li>
+                    <li>Use a wired Ethernet connection if available</li>
+                    <li>Disable VPN or proxy settings temporarily</li>
+                    <li>Check if your ISP is blocking downloads</li>
+                </ol>
+                <p class="mt-4 text-sm text-teal-700">If using mobile data, ensure downloads are allowed in your data plan settings.</p>
+            `
+        }
+    };
+
+    options.forEach(option => {
+        option.addEventListener('click', function() {
+            const issue = this.dataset.issue;
+            const solution = solutions[issue];
+
+            if (solution) {
+                solutionTitle.textContent = solution.title;
+                solutionContent.innerHTML = solution.content;
+                solutionContainer.classList.remove('hidden');
+
+                // Scroll to solution
+                solutionContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

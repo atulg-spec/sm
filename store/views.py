@@ -6,6 +6,9 @@ from django.http import JsonResponse, FileResponse, Http404
 from django.conf import settings
 import os
 from .models import Product, Category, Order, OrderItem
+import qrcode
+import io
+import base64
 
 
 def home(request):
@@ -90,11 +93,25 @@ def buy_now(request, product_id):
 def checkout(request, product_id):
     """Professional checkout page for direct purchase"""
     product = get_object_or_404(Product, id=product_id, active=True)
+
+    upi_url = f"upi://pay?pa={settings.UPI_ID}&pn={request.user.first_name}&am={product.price}&cu=INR"
+
+    # Generate QR Code
+    qr = qrcode.QRCode(version=1, box_size=10, border=4)
+    qr.add_data(upi_url)
+    qr.make(fit=True)
+    img = qr.make_image(fill_color="black", back_color="white")
+
+    # Convert to Base64
+    buffer = io.BytesIO()
+    img.save(buffer, format="PNG")
+    qr_image_base64 = base64.b64encode(buffer.getvalue()).decode()
+
     
     context = {
         'product': product,
         'upi_id': settings.UPI_ID,
-        'upi_qr_code': settings.UPI_QR_CODE,
+        'upi_qr_code': qr_image_base64,
     }
     return render(request, 'store/checkout.html', context)
 

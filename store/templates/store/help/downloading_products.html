@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Downloading Your Products - StartMarket Help{% endblock %}
+
+{% block meta_description %}Learn how to access and download your purchased digital products safely and securely. Step-by-step guide to downloading from StartMarket.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-charcoal-950 text-white py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center animate-slide-up">
+            <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                Downloading Your<br>
+                <span class="text-teal-400">Products</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto">
+                Access and download your purchased digital products
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section class="py-8 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="{% url 'store:home' %}" class="inline-flex items-center text-sm font-medium text-neutral-700 hover:text-teal-600">
+                        <svg class="w-3 h-3 mr-2.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2A1 1 0 0 0 1 10.414V19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-5a1 1 0 0 0 1-1h4a1 1 0 0 0 1 1v5a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-8.586A1 1 0 0 0 19.707 9.293Z"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-neutral-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        <a href="{% url 'store:help_center' %}" class="ml-1 text-sm font-medium text-neutral-700 hover:text-teal-600 md:ml-2">Help Center</a>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-neutral-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        <span class="ml-1 text-sm font-medium text-neutral-500 md:ml-2">Downloading Your Products</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Introduction -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-6">How to Download Your Products</h2>
+            <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+                After successfully purchasing a digital product on StartMarket, you can download it immediately.
+                Your downloads are available forever, and you can access them from any device after logging into your account.
+            </p>
+            <div class="bg-teal-50 border border-teal-200 rounded-lg p-6">
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-teal-900 mb-2">Lifetime Access</h3>
+                        <p class="text-teal-800 text-sm">Once downloaded, you have permanent access to your purchased products. No expiration dates or time limits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step by Step Guide -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Step-by-Step Download Process</h2>
+
+            <!-- Step 1 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        1
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Log Into Your Account</h3>
+                        <p class="text-neutral-700 mb-4">
+                            Make sure you're logged into your StartMarket account. You can only download products from your own account.
+                        </p>
+                        <div class="bg-white border border-neutral-300 rounded-lg p-4 mb-4">
+                            <h4 class="font-semibold text-charcoal-900 mb-2">How to log in:</h4>
+                            <ul class="space-y-2 text-sm text-neutral-700">
+                                <li>• Click "Login" in the top navigation</li>
+                                <li>• Enter your email address and password</li>
+                                <li>• Click "Sign In" to access your account</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div>
+                                    <h4 class="font-semibold text-blue-900 mb-1">Need an Account?</h4>
+                                    <p class="text-blue-800 text-sm">If you don't have an account yet, <a href="{% url 'store:help_creating_account' %}" class="underline hover:text-blue-600">learn how to create one here</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        2
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Access Your Downloads</h3>
+                        <p class="text-neutral-700 mb-4">
+                            There are several ways to access your downloaded products after logging in.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-2">Method 1: From Your Account Dashboard</h4>
+                                <ul class="space-y-2 text-sm text-neutral-700">
+                                    <li>• Click on your username in the top navigation</li>
+                                    <li>• Select "My Orders" from the dropdown menu</li>
+                                    <li>• Find the product you want to download</li>
+                                    <li>• Click the "Download" button next to the product</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-2">Method 2: From the Purchase Confirmation Email</h4>
+                                <ul class="space-y-2 text-sm text-neutral-700">
+                                    <li>• Open the email you received after purchase</li>
+                                    <li>• Click the download link provided in the email</li>
+                                    <li>• You'll be redirected to the download page</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-2">Method 3: Direct URL Access</h4>
+                                <ul class="space-y-2 text-sm text-neutral-700">
+                                    <li>• Use the direct download URLs from your order confirmation</li>
+                                    <li>• These links are unique to your account</li>
+                                    <li>• Bookmark them for easy future access</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        3
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Choose Download Location</h3>
+                        <p class="text-neutral-700 mb-4">
+                            When you click download, your browser will prompt you to choose where to save the file.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-2">Recommended Locations:</h4>
+                                <ul class="space-y-2 text-sm text-neutral-700">
+                                    <li>• <strong>Downloads folder:</strong> Default location</li>
+                                    <li>• <strong>Documents/Projects:</strong> For work files</li>
+                                    <li>• <strong>Desktop:</strong> For quick access</li>
+                                    <li>• <strong>External drive:</strong> For backup storage</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-2">File Organization Tips:</h4>
+                                <ul class="space-y-2 text-sm text-neutral-700">
+                                    <li>• Create project-specific folders</li>
+                                    <li>• Use descriptive file names</li>
+                                    <li>• Keep original files in a backup folder</li>
+                                    <li>• Organize by file type or project</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <div>
+                                    <h4 class="font-semibold text-amber-900 mb-1">Important Note</h4>
+                                    <p class="text-amber-800 text-sm">Always remember where you save your files. Some downloads may be large and take time to complete.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        4
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Verify and Extract Files</h3>
+                        <p class="text-neutral-700 mb-4">
+                            After downloading, verify your files and extract them if they're in a compressed format.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-2">File Types You Might Encounter:</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                    <div>
+                                        <h5 class="font-medium text-neutral-900 mb-2">Design Files:</h5>
+                                        <ul class="space-y-1 text-neutral-700">
+                                            <li>• .PSD (Photoshop)</li>
+                                            <li>• .AI (Illustrator)</li>
+                                            <li>• .FIG (Figma)</li>
+                                            <li>• .XD (Adobe XD)</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-neutral-900 mb-2">Web Assets:</h5>
+                                        <ul class="space-y-1 text-neutral-700">
+                                            <li>• .HTML, .CSS, .JS</li>
+                                            <li>• .ZIP (compressed)</li>
+                                            <li>• .SVG (vector graphics)</li>
+                                            <li>• Font files (.TTF, .OTF)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-2">Extraction Instructions:</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                    <div>
+                                        <h5 class="font-medium text-neutral-900 mb-2">Windows:</h5>
+                                        <ul class="space-y-1 text-neutral-700">
+                                            <li>• Right-click the ZIP file</li>
+                                            <li>• Select "Extract All"</li>
+                                            <li>• Choose destination folder</li>
+                                            <li>• Click "Extract"</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-neutral-900 mb-2">macOS:</h5>
+                                        <ul class="space-y-1 text-neutral-700">
+                                            <li>• Double-click the ZIP file</li>
+                                            <li>• Files extract automatically</li>
+                                            <li>• Find extracted folder</li>
+                                            <li>• Move to desired location</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        5
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-charcoal-900 mb-4">Check Included Files</h3>
+                        <p class="text-neutral-700 mb-4">
+                            Most digital products include additional files and documentation. Make sure to check what's included.
+                        </p>
+
+                        <div class="bg-white border border-neutral-300 rounded-lg p-4 mb-4">
+                            <h4 class="font-semibold text-charcoal-900 mb-2">Common Files You'll Find:</h4>
+                            <ul class="space-y-2 text-sm text-neutral-700">
+                                <li><strong>README.txt or Documentation:</strong> Instructions and usage guidelines</li>
+                                <li><strong>License.txt:</strong> Usage terms and conditions</li>
+                                <li><strong>Preview files:</strong> Sample images or demos</li>
+                                <li><strong>Source files:</strong> Editable versions of the product</li>
+                                <li><strong>Fonts:</strong> Custom typography files</li>
+                                <li><strong>Assets:</strong> Images, icons, or other resources</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div>
+                                    <h4 class="font-semibold text-green-900 mb-1">Always Read Documentation First</h4>
+                                    <p class="text-green-800 text-sm">The documentation will help you understand how to use the product effectively and avoid common mistakes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Tips -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Download Best Practices</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-3">Use a Fast Internet Connection</h3>
+                    <p class="text-neutral-600">Large files download faster with good internet speed. Consider using a wired connection for big downloads.</p>
+                </div>
+
+                <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-3">Scan Files for Viruses</h3>
+                    <p class="text-neutral-600">Always scan downloaded files with your antivirus software before opening them.</p>
+                </div>
+
+                <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-3">Backup Your Downloads</h3>
+                    <p class="text-neutral-600">Keep copies of your downloaded files on external drives or cloud storage for safekeeping.</p>
+                </div>
+
+                <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 4V5a1 1 0 011-1h4a1 1 0 011 1v1M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-3">Organize Your Files</h3>
+                    <p class="text-neutral-600">Create folders for different projects and keep your digital assets organized.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Common Download Issues</h2>
+
+            <div class="space-y-6">
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-red-900 mb-3">Download Won't Start</h3>
+                    <p class="text-red-800 mb-3">Possible solutions:</p>
+                    <ul class="space-y-2 text-sm text-red-800">
+                        <li>• Check your internet connection</li>
+                        <li>• Try refreshing the page</li>
+                        <li>• Clear your browser cache</li>
+                        <li>• Try a different browser</li>
+                        <li>• Disable browser extensions temporarily</li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-red-900 mb-3">File Appears Corrupted</h3>
+                    <p class="text-red-800 mb-3">If your downloaded file seems damaged:</p>
+                    <ul class="space-y-2 text-sm text-red-800">
+                        <li>• Try downloading again</li>
+                        <li>• Check available disk space</li>
+                        <li>• Scan for viruses before opening</li>
+                        <li>• Contact support if the problem persists</li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-red-900 mb-3">Can't Open Extracted Files</h3>
+                    <p class="text-red-800 mb-3">If you can't open the files after extraction:</p>
+                    <ul class="space-y-2 text-sm text-red-800">
+                        <li>• Make sure you have the required software</li>
+                        <li>• Check file associations in your OS</li>
+                        <li>• Try opening with different applications</li>
+                        <li>• Read the documentation for software requirements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multiple Device Access -->
+        <div class="bg-teal-600 text-white rounded-xl p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-6">Download on Multiple Devices</h2>
+            <p class="text-lg mb-6 leading-relaxed">
+                You can download and use your purchased products on multiple devices. Here's how:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">💻 Computer</h3>
+                    <p class="text-sm text-teal-100">Download to your desktop or laptop using any web browser.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">📱 Mobile Device</h3>
+                    <p class="text-sm text-teal-100">Access downloads through your mobile browser or save to cloud storage.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">☁️ Cloud Storage</h3>
+                    <p class="text-sm text-teal-100">Upload to Google Drive, Dropbox, or iCloud for access anywhere.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">💾 External Drives</h3>
+                    <p class="text-sm text-teal-100">Save to USB drives or external hard disks for backup and portability.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Need More Help -->
+        <div class="text-center bg-neutral-50 border border-neutral-200 rounded-xl p-8">
+            <h2 class="text-2xl font-bold text-charcoal-900 mb-4">Still Need Help?</h2>
+            <p class="text-neutral-600 mb-6">
+                If you're having trouble downloading your products or have questions about file formats,
+                our support team is here to help.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'store:contact' %}" class="btn-primary">Contact Support</a>
+                <a href="{% url 'store:help_troubleshooting_downloads' %}" class="border-2 border-teal-600 text-teal-600 font-semibold py-3 px-8 rounded-lg hover:bg-teal-600 hover:text-white transition-colors">
+                    Download Troubleshooting
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

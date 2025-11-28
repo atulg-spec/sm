@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - StartMarket{% endblock %}
+
+{% block meta_description %}Get in touch with StartMarket. We're here to help with any questions about our digital products, support, or partnership opportunities.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-charcoal-950 text-white py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center animate-slide-up">
+            <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                Contact<br>
+                <span class="text-teal-400">Us</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto">
+                Have a question or need support? We're here to help!
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Content -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Contact Information -->
+            <div class="animate-slide-up">
+                <h2 class="text-4xl font-bold text-charcoal-900 mb-6">Get In Touch</h2>
+                <p class="text-lg text-neutral-700 mb-8 leading-relaxed">
+                    Whether you need help with a purchase, have questions about our products,
+                    or want to discuss partnership opportunities, our team is ready to assist you.
+                </p>
+
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-charcoal-900 mb-1">Email Support</h3>
+                            <p class="text-neutral-600">support@startmarket.in</p>
+                            <p class="text-sm text-neutral-500 mt-1">We respond within 24 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-charcoal-900 mb-1">Live Chat</h3>
+                            <p class="text-neutral-600">Available on our website</p>
+                            <p class="text-sm text-neutral-500 mt-1">Monday - Friday, 9 AM - 6 PM IST</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-charcoal-900 mb-1">Help Center</h3>
+                            <p class="text-neutral-600">Browse our comprehensive FAQ</p>
+                            <p class="text-sm text-neutral-500 mt-1">Find answers to common questions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="animate-slide-up">
+                <div class="bg-neutral-50 p-8 rounded-2xl border border-neutral-200">
+                    <h3 class="text-2xl font-bold text-charcoal-900 mb-6">Send us a Message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="first_name" class="block text-sm font-medium text-charcoal-900 mb-2">First Name</label>
+                                <input type="text" id="first_name" name="first_name" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors" required>
+                            </div>
+                            <div>
+                                <label for="last_name" class="block text-sm font-medium text-charcoal-900 mb-2">Last Name</label>
+                                <input type="text" id="last_name" name="last_name" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-charcoal-900 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors" required>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-charcoal-900 mb-2">Subject</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors" required>
+                                <option value="">Select a topic</option>
+                                <option value="support">Technical Support</option>
+                                <option value="billing">Billing & Payments</option>
+                                <option value="product">Product Questions</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-charcoal-900 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="6" class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors resize-none" placeholder="Please describe your question or issue in detail..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-charcoal-900 mb-4">Frequently Asked Questions</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full mx-auto"></div>
+            <p class="text-lg text-neutral-600 mt-4">Quick answers to common questions</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <h3 class="text-lg font-semibold text-charcoal-900 mb-3">How do I download my purchased products?</h3>
+                <p class="text-neutral-600">After purchase, you'll receive a download link via email and can also access your downloads from your account dashboard.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <h3 class="text-lg font-semibold text-charcoal-900 mb-3">What payment methods do you accept?</h3>
+                <p class="text-neutral-600">We accept all major credit cards, debit cards, UPI, net banking, and digital wallets for secure transactions.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <h3 class="text-lg font-semibold text-charcoal-900 mb-3">Can I get a refund if I'm not satisfied?</h3>
+                <p class="text-neutral-600">We offer a 30-day refund policy for most digital products. Please check our terms for specific product categories.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <h3 class="text-lg font-semibold text-charcoal-900 mb-3">Do you provide customer support?</h3>
+                <p class="text-neutral-600">Yes! Our support team is available via email, live chat, and our comprehensive help center.</p>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <a href="{% url 'store:faqs' %}" class="btn-primary">View All FAQs</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

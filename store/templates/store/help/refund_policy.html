@@ -1,0 +1,472 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Refund Policy & Process - StartMarket Help{% endblock %}
+
+{% block meta_description %}Learn about StartMarket's refund policy, eligibility requirements, and how to request a refund for your digital product purchases.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-charcoal-950 text-white py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center animate-slide-up">
+            <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                Refund Policy<br>
+                <span class="text-teal-400">& Process</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto">
+                Understanding your refund rights and how to request a refund
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section class="py-8 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="{% url 'store:home' %}" class="inline-flex items-center text-sm font-medium text-neutral-700 hover:text-teal-600">
+                        <svg class="w-3 h-3 mr-2.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2A1 1 0 0 0 1 10.414V19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-5a1 1 0 0 0 1-1h4a1 1 0 0 0 1 1v5a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-8.586A1 1 0 0 0 19.707 9.293Z"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-neutral-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        <a href="{% url 'store:help_center' %}" class="ml-1 text-sm font-medium text-neutral-700 hover:text-teal-600 md:ml-2">Help Center</a>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-neutral-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        <span class="ml-1 text-sm font-medium text-neutral-500 md:ml-2">Refund Policy & Process</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Introduction -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-6">StartMarket Refund Policy</h2>
+            <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+                At StartMarket, we want you to be completely satisfied with your digital product purchases.
+                We offer a comprehensive refund policy designed to protect your interests while ensuring
+                the integrity of our marketplace.
+            </p>
+            <div class="bg-teal-50 border border-teal-200 rounded-lg p-6">
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-teal-900 mb-2">30-Day Satisfaction Guarantee</h3>
+                        <p class="text-teal-800 text-sm">Most digital products are eligible for refund within 30 days of purchase if you're not completely satisfied.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refund Eligibility -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Refund Eligibility</h2>
+
+            <!-- Eligible Products -->
+            <div class="bg-green-50 border border-green-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-green-900 mb-2">Eligible for Refund</h3>
+                        <p class="text-green-800 mb-4">Most digital products qualify for our satisfaction guarantee:</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white border border-green-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-900 mb-3">✅ Always Eligible</h4>
+                                <ul class="space-y-2 text-sm text-green-800">
+                                    <li>• Templates (web, graphic design)</li>
+                                    <li>• Stock photos and graphics</li>
+                                    <li>• Fonts and typography</li>
+                                    <li>• Icons and illustrations</li>
+                                    <li>• UI/UX design resources</li>
+                                    <li>• Code snippets and scripts</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white border border-green-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-900 mb-3">⏱️ Within Time Limits</h4>
+                                <ul class="space-y-2 text-sm text-green-800">
+                                    <li>• 30 days for most products</li>
+                                    <li>• 7 days for software/plugins</li>
+                                    <li>• 14 days for courses/tutorials</li>
+                                    <li>• As specified in product description</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Not Eligible -->
+            <div class="bg-red-50 border border-red-200 rounded-xl p-8 mb-8">
+                <div class="flex items-start space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-red-900 mb-2">Not Eligible for Refund</h3>
+                        <p class="text-red-800 mb-4">Some products and situations are not eligible for refunds:</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white border border-red-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-red-900 mb-3">❌ Product Types</h4>
+                                <ul class="space-y-2 text-sm text-red-800">
+                                    <li>• Physical products or merchandise</li>
+                                    <li>• Custom-designed items</li>
+                                    <li>• Services (consulting, custom work)</li>
+                                    <li>• Digital subscriptions (if already used)</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white border border-red-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-red-900 mb-3">❌ Conditions</h4>
+                                <ul class="space-y-2 text-sm text-red-800">
+                                    <li>• Beyond refund period</li>
+                                    <li>• Copyright infringement claims</li>
+                                    <li>• Change of mind after heavy use</li>
+                                    <li>• Technical issues from misuse</li>
+                                    <li>• Violation of license terms</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time Limits -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-blue-900 mb-2">Refund Time Limits</h3>
+                        <p class="text-blue-800 mb-4">Refund requests must be made within specific timeframes:</p>
+
+                        <div class="bg-white border border-blue-300 rounded-lg p-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-blue-600 mb-1">30</div>
+                                    <div class="text-blue-900 font-medium">Days</div>
+                                    <div class="text-blue-700">Most digital products</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-blue-600 mb-1">14</div>
+                                    <div class="text-blue-900 font-medium">Days</div>
+                                    <div class="text-blue-700">Courses & tutorials</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-blue-600 mb-1">7</div>
+                                    <div class="text-blue-900 font-medium">Days</div>
+                                    <div class="text-blue-700">Software & plugins</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Valid Refund Reasons -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Valid Refund Reasons</h2>
+
+            <div class="space-y-6">
+                <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-4">Technical Issues</h3>
+                    <ul class="space-y-2 text-neutral-700">
+                        <li><strong>Corrupted Files:</strong> Product files are damaged or unreadable</li>
+                        <li><strong>Wrong Format:</strong> Files don't match the advertised format</li>
+                        <li><strong>Missing Components:</strong> Product is incomplete or missing promised files</li>
+                        <li><strong>Compatibility Issues:</strong> Product doesn't work with specified software versions</li>
+                        <li><strong>Installation Problems:</strong> Cannot install or use the product as described</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-4">Product Quality</h3>
+                    <ul class="space-y-2 text-neutral-700">
+                        <li><strong>Not as Described:</strong> Product doesn't match the listing description</li>
+                        <li><strong>Poor Quality:</strong> Product quality is significantly below reasonable expectations</li>
+                        <li><strong>Outdated Content:</strong> Product contains outdated or incorrect information</li>
+                        <li><strong>Broken Links/Assets:</strong> Product contains non-functional elements</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-4">Licensing & Legal</h3>
+                    <ul class="space-y-2 text-neutral-700">
+                        <li><strong>Copyright Issues:</strong> Product infringes on third-party copyrights</li>
+                        <li><strong>License Restrictions:</strong> Product has more restrictive licensing than advertised</li>
+                        <li><strong>Usage Limitations:</strong> Cannot use product for intended purpose due to restrictions</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-4">Other Valid Reasons</h3>
+                    <ul class="space-y-2 text-neutral-700">
+                        <li><strong>Duplicate Purchase:</strong> Accidentally purchased the same product twice</li>
+                        <li><strong>Wrong Product:</strong> Purchased incorrect item due to misleading description</li>
+                        <li><strong>System Requirements:</strong> Product requires unsupported software/hardware</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to Request Refund -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">How to Request a Refund</h2>
+
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-8">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                            1
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-charcoal-900 mb-2">Gather Information</h3>
+                            <p class="text-neutral-700 mb-3">Before requesting a refund, collect all necessary information:</p>
+                            <ul class="space-y-2 text-sm text-neutral-700">
+                                <li>• Order number (from confirmation email or account)</li>
+                                <li>• Purchase date and amount</li>
+                                <li>• Detailed reason for refund request</li>
+                                <li>• Screenshots or evidence (if applicable)</li>
+                                <li>• What you've tried to resolve the issue</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                            2
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-charcoal-900 mb-2">Contact Support</h3>
+                            <p class="text-neutral-700 mb-3">Submit your refund request through our support channels:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                    <h4 class="font-semibold text-charcoal-900 mb-2">Email Support</h4>
+                                    <p class="text-sm text-neutral-700">support@startmarket.in</p>
+                                    <p class="text-xs text-neutral-500">Include "Refund Request" in subject</p>
+                                </div>
+                                <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                    <h4 class="font-semibold text-charcoal-900 mb-2">Contact Form</h4>
+                                    <p class="text-sm text-neutral-700">Use our contact form</p>
+                                    <p class="text-xs text-neutral-500">Select "Refund" as topic</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                            3
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-charcoal-900 mb-2">Provide Details</h3>
+                            <p class="text-neutral-700 mb-3">Include comprehensive information in your request:</p>
+                            <div class="bg-white border border-neutral-300 rounded-lg p-4">
+                                <h4 class="font-semibold text-charcoal-900 mb-3">Required Information:</h4>
+                                <ul class="space-y-2 text-sm text-neutral-700">
+                                    <li><strong>Order Details:</strong> Order number, product name, purchase date</li>
+                                    <li><strong>Reason:</strong> Clear explanation of why you're requesting refund</li>
+                                    <li><strong>Evidence:</strong> Screenshots, error messages, or examples</li>
+                                    <li><strong>Attempts:</strong> What you've tried to resolve the issue</li>
+                                    <li><strong>Expectation:</strong> What outcome you're hoping for</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                            4
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-charcoal-900 mb-2">Wait for Review</h3>
+                            <p class="text-neutral-700 mb-3">Our team will review your request and respond within 2-3 business days:</p>
+                            <ul class="space-y-2 text-sm text-neutral-700">
+                                <li>• <strong>Approval:</strong> We'll process your refund and send confirmation</li>
+                                <li>• <strong>Additional Info:</strong> May request more details or screenshots</li>
+                                <li>• <strong>Alternative Solution:</strong> Might offer replacement or discount instead</li>
+                                <li>• <strong>Denial:</strong> Clear explanation if refund cannot be granted</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                            5
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-charcoal-900 mb-2">Receive Refund</h3>
+                            <p class="text-neutral-700 mb-3">Approved refunds are processed to your original payment method:</p>
+                            <ul class="space-y-2 text-sm text-neutral-700">
+                                <li>• <strong>Credit Cards:</strong> 3-5 business days</li>
+                                <li>• <strong>UPI/Digital Wallets:</strong> 1-2 business days</li>
+                                <li>• <strong>Net Banking:</strong> 5-7 business days</li>
+                                <li>• <strong>PayPal/Stripe:</strong> 3-5 business days</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refund Process -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">What Happens During Refund Review</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-4">Approved Refunds</h3>
+                    <ul class="space-y-3 text-sm text-neutral-700">
+                        <li><strong>Full Refund:</strong> Complete purchase amount returned</li>
+                        <li><strong>Access Revoked:</strong> Download access disabled</li>
+                        <li><strong>Email Confirmation:</strong> Refund confirmation sent</li>
+                        <li><strong>Processing Time:</strong> 3-5 business days to your account</li>
+                        <li><strong>Order Status:</strong> Marked as refunded</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-charcoal-900 mb-4">Alternative Solutions</h3>
+                    <ul class="space-y-3 text-sm text-neutral-700">
+                        <li><strong>Partial Refund:</strong> Pro-rated amount for used portions</li>
+                        <li><strong>Product Replacement:</strong> Updated or corrected version</li>
+                        <li><strong>Store Credit:</strong> Credit for future purchases</li>
+                        <li><strong>Discount Code:</strong> For similar products</li>
+                        <li><strong>Support Assistance:</strong> Help resolving the issue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Notes -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-charcoal-900 mb-8">Important Notes</h2>
+
+            <div class="space-y-6">
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-amber-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-amber-900 mb-2">Digital Product Nature</h4>
+                            <p class="text-amber-800 text-sm">Since digital products are instantly accessible, we ask that you contact us promptly if you encounter issues rather than using the product extensively before requesting a refund.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-blue-900 mb-2">Refund Processing</h4>
+                            <p class="text-blue-800 text-sm">Approved refunds are processed back to your original payment method. Processing times vary by payment provider and may take 3-10 business days to appear in your account.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-red-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-red-900 mb-2">Multiple Refund Requests</h4>
+                            <p class="text-red-800 text-sm">Only one refund request per order is allowed. If you've already received a refund for an order, additional refund requests for the same order will not be considered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact for Refunds -->
+        <div class="bg-teal-600 text-white rounded-xl p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-6">Need a Refund?</h2>
+            <p class="text-lg mb-6 leading-relaxed">
+                Our support team is here to help you with your refund request. We review each case carefully
+                and strive to resolve issues fairly and efficiently.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">📧 Email Support</h3>
+                    <p class="text-sm text-teal-100">Send detailed refund request to support@startmarket.in</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">💬 Contact Form</h3>
+                    <p class="text-sm text-teal-100">Use our contact form and select "Refund" as the topic</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">📋 Required Info</h3>
+                    <p class="text-sm text-teal-100">Order number, reason, and any supporting evidence</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h3 class="font-semibold mb-2">⏰ Response Time</h3>
+                    <p class="text-sm text-teal-100">We'll respond to your request within 2-3 business days</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Need More Help -->
+        <div class="text-center bg-neutral-50 border border-neutral-200 rounded-xl p-8">
+            <h2 class="text-2xl font-bold text-charcoal-900 mb-4">Questions About Refunds?</h2>
+            <p class="text-neutral-600 mb-6">
+                If you need clarification about our refund policy or have questions about a specific situation,
+                don't hesitate to contact our support team.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'store:contact' %}" class="btn-primary">Contact Support</a>
+                <a href="{% url 'store:help_center' %}" class="border-2 border-teal-600 text-teal-600 font-semibold py-3 px-8 rounded-lg hover:bg-teal-600 hover:text-white transition-colors">
+                    Back to Help Center
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

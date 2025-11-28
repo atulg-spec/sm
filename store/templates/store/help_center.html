@@ -1,0 +1,768 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Help Center - StartMarket{% endblock %}
+
+{% block meta_description %}Get help with StartMarket. Find guides, tutorials, troubleshooting tips, and answers to common questions about our digital products platform.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-charcoal-950 text-white py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center animate-slide-up">
+            <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                Help<br>
+                <span class="text-teal-400">Center</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto">
+                Find answers, guides, and support resources to get the most out of StartMarket
+            </p>
+            <div class="max-w-md mx-auto">
+                <div class="relative">
+                    <input type="text" placeholder="Search for help..." class="w-full px-6 py-4 rounded-full border-2 border-neutral-300 bg-white text-charcoal-900 placeholder-neutral-500 focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                    <button class="absolute right-2 top-2 bg-teal-600 text-white p-2 rounded-full hover:bg-teal-700 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Help Categories -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-charcoal-900 mb-4">Browse by Category</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a href="#getting-started" class="card-hover p-8 text-center group animate-slide-up">
+                <div class="w-16 h-16 bg-teal-100 rounded-xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3 group-hover:text-teal-600 transition-colors">Getting Started</h3>
+                <p class="text-neutral-600">Learn the basics of using StartMarket, creating accounts, and making your first purchase.</p>
+            </a>
+
+            <a href="#account-management" class="card-hover p-8 text-center group animate-slide-up">
+                <div class="w-16 h-16 bg-teal-100 rounded-xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3 group-hover:text-teal-600 transition-colors">Account Management</h3>
+                <p class="text-neutral-600">Manage your profile, update payment methods, view order history, and account settings.</p>
+            </a>
+
+            <a href="#purchases-downloads" class="card-hover p-8 text-center group animate-slide-up">
+                <div class="w-16 h-16 bg-teal-100 rounded-xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3 group-hover:text-teal-600 transition-colors">Purchases & Downloads</h3>
+                <p class="text-neutral-600">Learn how to complete purchases, download products, and manage your digital library.</p>
+            </a>
+
+            <a href="#troubleshooting" class="card-hover p-8 text-center group animate-slide-up">
+                <div class="w-16 h-16 bg-teal-100 rounded-xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3 group-hover:text-teal-600 transition-colors">Troubleshooting</h3>
+                <p class="text-neutral-600">Common issues and solutions for download problems, payment errors, and technical difficulties.</p>
+            </a>
+
+            <a href="#billing-refunds" class="card-hover p-8 text-center group animate-slide-up">
+                <div class="w-16 h-16 bg-teal-100 rounded-xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3 group-hover:text-teal-600 transition-colors">Billing & Refunds</h3>
+                <p class="text-neutral-600">Payment methods, billing history, refund policies, and invoice management.</p>
+            </a>
+
+            <a href="#seller-resources" class="card-hover p-8 text-center group animate-slide-up">
+                <div class="w-16 h-16 bg-teal-100 rounded-xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3 group-hover:text-teal-600 transition-colors">Seller Resources</h3>
+                <p class="text-neutral-600">Information for sellers about listing products, managing sales, and platform guidelines.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Category Content Sections -->
+<section id="getting-started" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-charcoal-900 mb-4">Getting Started</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full mx-auto"></div>
+            <p class="text-lg text-neutral-600 mt-4">Learn the basics of using StartMarket</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Creating Your Account</h3>
+                <p class="text-neutral-600 mb-4">Step-by-step guide to registering and setting up your StartMarket account.</p>
+                <a href="{% url 'store:help_creating_account' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Read Full Guide →</a>
+            </div>
+
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Finding Products</h3>
+                <p class="text-neutral-600 mb-4">How to search, browse, and discover products that match your needs.</p>
+                <a href="#browsing-products" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Learn More →</a>
+            </div>
+
+            <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.1 5H19M7 13l-1.1 5M7 13l-2.5-2.5M17 18v2a2 2 0 01-2 2H9a2 2 0 01-2-2v-2m10 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v9m10 0H7"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Making Your First Purchase</h3>
+                <p class="text-neutral-600 mb-4">Complete guide to adding items to cart and completing your purchase.</p>
+                <a href="#making-purchase" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="mt-12 bg-teal-50 border border-teal-200 rounded-xl p-8">
+            <h3 class="text-xl font-bold text-teal-900 mb-4">Quick Start Checklist</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                        <span class="text-teal-800">Create your free account</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                        <span class="text-teal-800">Verify your email address</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                        <span class="text-teal-800">Browse and find products</span>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm font-bold">4</div>
+                        <span class="text-teal-800">Add items to your cart</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm font-bold">5</div>
+                        <span class="text-teal-800">Complete secure checkout</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm font-bold">6</div>
+                        <span class="text-teal-800">Download your products</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Getting Started Content -->
+        <div id="browsing-products" class="mt-12 bg-white border border-neutral-200 rounded-xl p-8">
+            <h3 class="text-2xl font-bold text-charcoal-900 mb-6">How to Browse and Find Products</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold text-charcoal-900 mb-3">Search & Filters</h4>
+                    <ul class="space-y-2 text-sm text-neutral-700">
+                        <li>• Use the search bar for specific products</li>
+                        <li>• Filter by category, price, or rating</li>
+                        <li>• Sort by popularity, newest, or price</li>
+                        <li>• Use advanced filters for detailed search</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-charcoal-900 mb-3">Product Discovery</h4>
+                    <ul class="space-y-2 text-sm text-neutral-700">
+                        <li>• Browse featured and trending products</li>
+                        <li>• Check product ratings and reviews</li>
+                        <li>• Preview product demos and samples</li>
+                        <li>• Read detailed product descriptions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="making-purchase" class="mt-8 bg-white border border-neutral-200 rounded-xl p-8">
+            <h3 class="text-2xl font-bold text-charcoal-900 mb-6">Making Your First Purchase</h3>
+            <div class="space-y-6">
+                <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                    <h4 class="font-semibold text-charcoal-900 mb-3">Step-by-Step Purchase Process</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div>
+                            <h5 class="font-medium text-teal-900 mb-2">1. Select Product</h5>
+                            <p class="text-neutral-700">Choose the product you want and click "Add to Cart"</p>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-teal-900 mb-2">2. Review Cart</h5>
+                            <p class="text-neutral-700">Check your cart items and proceed to checkout</p>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-teal-900 mb-2">3. Complete Payment</h5>
+                            <p class="text-neutral-700">Choose payment method and complete secure transaction</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-teal-50 border border-teal-200 rounded-lg p-6">
+                    <h4 class="font-semibold text-teal-900 mb-3">What Happens After Purchase</h4>
+                    <ul class="space-y-2 text-sm text-teal-800">
+                        <li>• Instant email confirmation with download links</li>
+                        <li>• Immediate access to your digital products</li>
+                        <li>• Order appears in your account history</li>
+                        <li>• Tax invoice available for download</li>
+                        <li>• Lifetime access to re-download products</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="account-management" class="py-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-charcoal-900 mb-4">Account Management</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full mx-auto"></div>
+            <p class="text-lg text-neutral-600 mt-4">Manage your profile and account settings</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Profile Settings</h3>
+                <p class="text-neutral-600 mb-4">Update your personal information, profile picture, and bio.</p>
+                <a href="{% url 'store:help_managing_account' %}#profile-settings" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Learn More →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Password & Security</h3>
+                <p class="text-neutral-600 mb-4">Change your password and manage security settings.</p>
+                <a href="{% url 'store:help_managing_account' %}#password-security" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Learn More →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Order History</h3>
+                <p class="text-neutral-600 mb-4">View past orders, track status, and re-download products.</p>
+                <a href="{% url 'store:help_managing_account' %}#order-history" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Learn More →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Downloads Library</h3>
+                <p class="text-neutral-600 mb-4">Access all your purchased products and manage downloads.</p>
+                <a href="{% url 'store:help_managing_account' %}#downloads-library" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Learn More →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Payment Methods</h3>
+                <p class="text-neutral-600 mb-4">Manage saved payment methods and billing information.</p>
+                <a href="{% url 'store:help_managing_account' %}#payment-methods" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Learn More →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4.868 12.683A17.925 17.925 0 0112 21c7.962 0 12-1.21 12-2.683m-12 2.683a17.925 17.925 0 01-7.132-8.317M12 21c4.411 0 8-4.03 8-9s-3.589-9-8-9-8 4.03-8 9a9.06 9.06 0 001.832 5.683L4 21l4.868-8.317z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Email Preferences</h3>
+                <p class="text-neutral-600 mb-4">Control what notifications and marketing emails you receive.</p>
+                <a href="{% url 'store:help_managing_account' %}#notifications" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Learn More →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="purchases-downloads" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-charcoal-900 mb-4">Purchases & Downloads</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full mx-auto"></div>
+            <p class="text-lg text-neutral-600 mt-4">Complete guide to buying and downloading products</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-2xl font-bold text-charcoal-900 mb-6">Making Purchases</h3>
+                <div class="space-y-6">
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">1. Browse & Select</h4>
+                        <p class="text-neutral-600">Find products using search, categories, or recommendations.</p>
+                    </div>
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">2. Add to Cart</h4>
+                        <p class="text-neutral-600">Click "Add to Cart" and review items before checkout.</p>
+                    </div>
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">3. Secure Checkout</h4>
+                        <p class="text-neutral-600">Enter payment details and complete your purchase safely.</p>
+                    </div>
+                </div>
+                <a href="{% url 'store:help_payment_security' %}" class="inline-block mt-6 bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors">Payment Guide →</a>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold text-charcoal-900 mb-6">Downloading Products</h3>
+                <div class="space-y-6">
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">1. Access Downloads</h4>
+                        <p class="text-neutral-600">Use account dashboard or email links to access downloads.</p>
+                    </div>
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">2. Choose Location</h4>
+                        <p class="text-neutral-600">Select where to save files on your device.</p>
+                    </div>
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">3. Extract & Use</h4>
+                        <p class="text-neutral-600">Unzip compressed files and follow usage instructions.</p>
+                    </div>
+                </div>
+                <a href="{% url 'store:help_downloading_products' %}" class="inline-block mt-6 bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors">Download Guide →</a>
+            </div>
+        </div>
+
+        <div class="mt-12 bg-teal-50 border border-teal-200 rounded-xl p-8">
+            <h3 class="text-xl font-bold text-teal-900 mb-4">Digital Product Benefits</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-teal-900 mb-2">Instant Access</h4>
+                    <p class="text-teal-800 text-sm">Download immediately after purchase</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-teal-900 mb-2">Lifetime Access</h4>
+                    <p class="text-teal-800 text-sm">Re-download anytime from your account</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-teal-900 mb-2">No Shipping</h4>
+                    <p class="text-teal-800 text-sm">No waiting for delivery</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="troubleshooting" class="py-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-charcoal-900 mb-4">Troubleshooting</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full mx-auto"></div>
+            <p class="text-lg text-neutral-600 mt-4">Solutions for common issues and technical problems</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Download Issues</h3>
+                <p class="text-neutral-600 mb-4">Problems downloading or accessing your products.</p>
+                <a href="{% url 'store:help_troubleshooting_downloads' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Get Help →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Account Problems</h3>
+                <p class="text-neutral-600 mb-4">Login issues, password reset, and account access problems.</p>
+                <a href="{% url 'store:help_creating_account' %}#troubleshooting" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Get Help →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Payment Errors</h3>
+                <p class="text-neutral-600 mb-4">Issues with payment processing or transaction failures.</p>
+                <a href="{% url 'store:help_payment_security' %}#payment-process" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Get Help →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Technical Support</h3>
+                <p class="text-neutral-600 mb-4">General technical issues and platform problems.</p>
+                <a href="{% url 'store:contact' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Contact Support →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">FAQ</h3>
+                <p class="text-neutral-600 mb-4">Quick answers to frequently asked questions.</p>
+                <a href="{% url 'store:faqs' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Browse FAQ →</a>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Contact Us</h3>
+                <p class="text-neutral-600 mb-4">Can't find what you need? Get in touch with our support team.</p>
+                <a href="{% url 'store:contact' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Get Support →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="billing-refunds" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-charcoal-900 mb-4">Billing & Refunds</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full mx-auto"></div>
+            <p class="text-lg text-neutral-600 mt-4">Payment methods, billing history, and refund policies</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-2xl font-bold text-charcoal-900 mb-6">Payment Methods</h3>
+                <div class="space-y-4">
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">Credit & Debit Cards</h4>
+                        <p class="text-neutral-600 mb-3">Visa, Mastercard, American Express</p>
+                        <ul class="text-sm text-neutral-600 space-y-1">
+                            <li>• Secure SSL encryption</li>
+                            <li>• PCI DSS compliant</li>
+                            <li>• Instant processing</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">UPI & Digital Wallets</h4>
+                        <p class="text-neutral-600 mb-3">Google Pay, PhonePe, Paytm</p>
+                        <ul class="text-sm text-neutral-600 space-y-1">
+                            <li>• Quick and convenient</li>
+                            <li>• Instant confirmation</li>
+                            <li>• Bank-level security</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">Net Banking</h4>
+                        <p class="text-neutral-600 mb-3">Direct bank transfers</p>
+                        <ul class="text-sm text-neutral-600 space-y-1">
+                            <li>• All major Indian banks</li>
+                            <li>• Secure bank integration</li>
+                            <li>• No additional fees</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="{% url 'store:help_payment_security' %}" class="inline-block mt-6 bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors">Payment Security →</a>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold text-charcoal-900 mb-6">Refunds & Billing</h3>
+                <div class="space-y-4">
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">30-Day Refund Guarantee</h4>
+                        <p class="text-neutral-600 mb-3">Satisfaction guarantee on most products</p>
+                        <ul class="text-sm text-neutral-600 space-y-1">
+                            <li>• Templates and graphics</li>
+                            <li>• Fonts and design assets</li>
+                            <li>• Digital resources</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">Billing History</h4>
+                        <p class="text-neutral-600 mb-3">Access all your invoices and receipts</p>
+                        <ul class="text-sm text-neutral-600 space-y-1">
+                            <li>• Downloadable invoices</li>
+                            <li>• Complete transaction history</li>
+                            <li>• Tax documentation</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+                        <h4 class="font-semibold text-charcoal-900 mb-3">Refund Process</h4>
+                        <p class="text-neutral-600 mb-3">Easy refund requests and processing</p>
+                        <ul class="text-sm text-neutral-600 space-y-1">
+                            <li>• Contact support for refunds</li>
+                            <li>• 2-3 business day review</li>
+                            <li>• Original payment method</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="{% url 'store:help_refund_policy' %}" class="inline-block mt-6 bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors">Refund Policy →</a>
+            </div>
+        </div>
+
+        <div class="mt-12 bg-teal-50 border border-teal-200 rounded-xl p-8">
+            <h3 class="text-xl font-bold text-teal-900 mb-4">Billing Support</h3>
+            <p class="text-teal-800 mb-6">Need help with billing, payments, or refunds? Our support team is here to assist you.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'store:contact' %}" class="bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors">Contact Billing Support</a>
+                <a href="mailto:billing@startmarket.in" class="border-2 border-teal-600 text-teal-600 font-semibold py-3 px-6 rounded-lg hover:bg-teal-600 hover:text-white transition-colors">billing@startmarket.in</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="seller-resources" class="py-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-charcoal-900 mb-4">Seller Resources</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full mx-auto"></div>
+            <p class="text-lg text-neutral-600 mt-4">Information for sellers and content creators</p>
+        </div>
+
+        <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-8 mb-8">
+            <div class="flex items-start space-x-3">
+                <svg class="w-6 h-6 text-yellow-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                </svg>
+                <div>
+                    <h3 class="font-semibold text-yellow-900 mb-2">Coming Soon</h3>
+                    <p class="text-yellow-800">Seller resources and marketplace features are currently under development. We're working to provide comprehensive tools for content creators and digital product sellers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Product Guidelines</h3>
+                <p class="text-neutral-600 mb-4">Quality standards and requirements for digital products.</p>
+                <span class="text-gray-400 font-semibold">Coming Soon</span>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Sales Analytics</h3>
+                <p class="text-neutral-600 mb-4">Track your product performance and earnings.</p>
+                <span class="text-gray-400 font-semibold">Coming Soon</span>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Seller Dashboard</h3>
+                <p class="text-neutral-600 mb-4">Manage your products and sales from one place.</p>
+                <span class="text-gray-400 font-semibold">Coming Soon</span>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">License Management</h3>
+                <p class="text-neutral-600 mb-4">Set licensing terms and usage permissions.</p>
+                <span class="text-gray-400 font-semibold">Coming Soon</span>
+            </div>
+
+            <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal-900 mb-3">Seller Support</h3>
+                    <p class="text-neutral-600 mb-4">Dedicated support for marketplace sellers.</p>
+                    <a href="{% url 'store:contact' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Contact Us →</a>
+                </div>
+
+                <div class="bg-white border border-neutral-200 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal-900 mb-3">Revenue Reports</h3>
+                    <p class="text-neutral-600 mb-4">Detailed earnings reports and payout information.</p>
+                    <span class="text-gray-400 font-semibold">Coming Soon</span>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p class="text-neutral-600 mb-4">Interested in becoming a seller on StartMarket?</p>
+                <a href="{% url 'store:contact' %}" class="bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors">Join Our Marketplace</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Articles -->
+<section class="py-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-charcoal-900 mb-4">Popular Articles</h2>
+            <div class="h-1 w-24 bg-teal-600 rounded-full mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">How to Create Your Account</h3>
+                <p class="text-neutral-600 mb-4">Step-by-step guide to registering and setting up your StartMarket account for the first time.</p>
+                <a href="{% url 'store:help_creating_account' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Read More →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Downloading Your Products</h3>
+                <p class="text-neutral-600 mb-4">Learn how to access and download your purchased digital products safely and securely.</p>
+                <a href="{% url 'store:help_downloading_products' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Read More →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Payment Methods & Security</h3>
+                <p class="text-neutral-600 mb-4">Everything you need to know about secure payments and accepted payment methods on StartMarket.</p>
+                <a href="{% url 'store:help_payment_security' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Read More →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Troubleshooting Download Issues</h3>
+                <p class="text-neutral-600 mb-4">Common download problems and their solutions to help you get your products quickly.</p>
+                <a href="{% url 'store:help_troubleshooting_downloads' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Read More →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Managing Your Account</h3>
+                <p class="text-neutral-600 mb-4">Update your profile, change passwords, manage notifications, and account preferences.</p>
+                <a href="{% url 'store:help_managing_account' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Read More →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-neutral-200 animate-slide-up">
+                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-charcoal-900 mb-3">Refund Policy & Process</h3>
+                <p class="text-neutral-600 mb-4">Learn about our refund policy and how to request a refund for your purchases.</p>
+                <a href="{% url 'store:help_refund_policy' %}" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors">Read More →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Support -->
+<section class="py-20 bg-teal-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-bold mb-6">Still Need Help?</h2>
+        <p class="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
+            Our support team is here to help you with any questions or issues you might have.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'store:contact' %}" class="bg-white text-teal-600 font-semibold py-3 px-8 rounded-lg hover:bg-neutral-50 transition-colors">
+                Contact Support
+            </a>
+            <a href="{% url 'store:faqs' %}" class="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-teal-600 transition-colors">
+                Browse FAQs
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

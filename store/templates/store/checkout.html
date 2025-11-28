@@ -4,248 +4,212 @@
 {% block title %}Checkout - {{ product.name }}{% endblock %}
 
 {% block content %}
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Progress Steps -->
-    <div class="mb-8">
-        <div class="flex items-center justify-center mb-8">
-            <div class="flex items-center">
-                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-600 text-white font-semibold">
-                    1
+<div class="bg-neutral-50 min-h-screen pb-28">
+    <!-- Header with Progress -->
+    <div class="bg-white sticky top-5 z-40 shadow-sm">
+        <div class="max-w-2xl mx-auto px-4 py-6">
+            <h1 class="text-2xl font-bold text-gray-900 mb-6">Checkout</h1>
+            
+            <!-- Progress Indicator -->
+            <div class="flex items-center justify-between">
+                <div class="flex flex-col items-center flex-1">
+                    <div class="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center text-sm font-bold mb-1">1</div>
+                    <span class="text-xs font-medium text-teal-600">Order</span>
                 </div>
-                <div class="w-24 h-1 bg-teal-600 mx-2"></div>
-            </div>
-            <div class="flex items-center">
-                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-600 text-white font-semibold">
-                    2
+                <div class="h-0.5 flex-1 bg-teal-600 mx-2 mb-6"></div>
+                <div class="flex flex-col items-center flex-1">
+                    <div class="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center text-sm font-bold mb-1">2</div>
+                    <span class="text-xs font-medium text-teal-600">Payment</span>
                 </div>
-                <div class="w-24 h-1 bg-neutral-300 mx-2"></div>
+                <div class="h-0.5 flex-1 bg-neutral-300 mx-2 mb-6"></div>
+                <div class="flex flex-col items-center flex-1">
+                    <div class="w-8 h-8 rounded-full bg-neutral-300 text-neutral-600 flex items-center justify-center text-sm font-bold mb-1">3</div>
+                    <span class="text-xs font-medium text-neutral-500">Confirm</span>
+                </div>
             </div>
-            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-neutral-300 text-neutral-600 font-semibold">
-                3
-            </div>
-        </div>
-        <div class="flex justify-center space-x-32 text-sm">
-            <span class="text-teal-600 font-semibold">Order Details</span>
-            <span class="text-teal-600 font-semibold">Payment</span>
-            <span class="text-neutral-500">Confirmation</span>
         </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Main Checkout Form -->
-        <div class="lg:col-span-2">
-            <!-- Order Summary Card -->
-            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
+    <!-- Main Content -->
+    <div class="max-w-2xl mx-auto px-4 py-6 space-y-6">
+        
+        <!-- Product Summary Card -->
+        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-6">
+            <h2 class="text-lg font-bold text-gray-900 mb-4">Order Summary</h2>
+            
+            <!-- Product Details -->
+            <div class="flex gap-4 mb-6 pb-6 border-b border-gray-200">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-xl shadow-md flex-shrink-0">
+                {% else %}
+                    <div class="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-teal-400 to-teal-600 rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
+                        <span class="text-white text-2xl sm:text-3xl font-bold">{{ product.name|first }}</span>
+                    </div>
+                {% endif %}
                 
-                <div class="flex gap-6 mb-6 pb-6 border-b border-gray-200">
-                    {% if product.image %}
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-32 h-32 object-cover rounded-lg shadow-md">
-                    {% else %}
-                        <div class="w-32 h-32 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center shadow-md">
-                            <span class="text-white text-3xl font-bold">{{ product.name|first }}</span>
-                        </div>
-                    {% endif %}
-                    <div class="flex-1">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ product.name }}</h3>
-                        <p class="text-gray-600 mb-3">{{ product.short_description }}</p>
-                        <div class="flex items-center gap-4">
-                            <span class="text-3xl font-bold text-primary-600">₹{{ product.price }}</span>
-                            {% if product.is_digital %}
-                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Digital Product</span>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="space-y-3">
-                    <div class="flex justify-between text-gray-700">
-                        <span>Subtotal</span>
-                        <span class="font-semibold">₹{{ product.price }}</span>
-                    </div>
-                    <div class="flex justify-between text-gray-700">
-                        <span>Processing Fee</span>
-                        <span class="font-semibold">₹0.00</span>
-                    </div>
-                    <div class="border-t border-gray-200 pt-4 mt-4">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-gray-900">Total Amount</span>
-                            <span class="text-3xl font-bold text-primary-600">₹{{ product.price }}</span>
-                        </div>
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-1 break-words">{{ product.name }}</h3>
+                    <p class="text-sm text-gray-600 mb-3 line-clamp-2">{{ product.short_description }}</p>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-2xl sm:text-3xl font-bold text-teal-600">₹{{ product.price }}</span>
+                        {% if product.is_digital %}
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full whitespace-nowrap">Digital</span>
+                        {% endif %}
                     </div>
                 </div>
             </div>
 
-            <!-- Payment Method Card -->
-            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">Payment Method</h2>
-                
-                <div class="bg-gradient-to-r from-primary-50 to-blue-50 border-2 border-primary-200 rounded-xl p-6 mb-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-sm text-gray-600 mb-1">Pay to UPI ID</p>
-                            <p class="text-3xl font-bold text-primary-700">{{ upi_id }}</p>
-                        </div>
-                        <button onclick="copyUPI()" class="bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-all shadow-md hover:shadow-lg flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                            </svg>
-                            Copy UPI ID
-                        </button>
-                    </div>
-                    
-                    {% if upi_qr_code %}
-                    <div class="mt-6 pt-6 border-t border-teal-200">
-                        <p class="text-sm text-neutral-600 mb-3 text-center">Or scan QR code to pay</p>
-                        <div class="flex justify-center">
-                            <img src="{{ upi_qr_code }}" alt="UPI QR Code" class="w-64 h-64 border-4 border-white rounded-xl shadow-lg">
-                        </div>
-                    </div>
-                    {% endif %}
+            <!-- Price Breakdown -->
+            <div class="space-y-2">
+                <div class="flex justify-between text-sm text-gray-700">
+                    <span>Subtotal</span>
+                    <span class="font-semibold">₹{{ product.price }}</span>
                 </div>
-
-                <!-- Payment Instructions -->
-                <div class="bg-teal-50 border-l-4 border-teal-500 rounded-lg p-4 mb-6">
-                    <h3 class="font-semibold text-teal-900 mb-3 flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
-                        </svg>
-                        Payment Instructions
-                    </h3>
-                    <ol class="list-decimal list-inside space-y-2 text-sm text-teal-800">
-                        <li>Open your UPI app (PhonePe, Google Pay, Paytm, BHIM, etc.)</li>
-                        <li>Send <strong>₹{{ product.price }}</strong> to <strong>{{ upi_id }}</strong></li>
-                        <li>After payment, copy the <strong>Transaction ID</strong> or <strong>Reference Number</strong></li>
-                        <li>Paste it in the form below and submit</li>
-                        <li>Your order will be verified and activated within 24 hours</li>
-                    </ol>
+                <div class="flex justify-between text-sm text-gray-700">
+                    <span>Fee</span>
+                    <span class="font-semibold">₹0</span>
                 </div>
-
-                <!-- Payment Form -->
-                <form method="post" action="{% url 'store:create_order' product.id %}" enctype="multipart/form-data" class="space-y-6">
-                    {% csrf_token %}
-                    
-                    <div>
-                        <label for="upi_transaction_id" class="block text-sm font-semibold text-gray-700 mb-2">
-                            UPI Transaction ID / Reference Number <span class="text-red-500">*</span>
-                        </label>
-                        <input type="text" id="upi_transaction_id" name="upi_transaction_id" required
-                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all text-lg"
-                               placeholder="e.g., 1234567890123456">
-                        <p class="text-xs text-gray-500 mt-2 flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
-                            </svg>
-                            You can find this in your payment app's transaction history
-                        </p>
-                    </div>
-
-                    <div>
-                        <label for="upi_id" class="block text-sm font-semibold text-gray-700 mb-2">
-                            Your UPI ID <span class="text-gray-400">(Optional)</span>
-                        </label>
-                        <input type="text" id="upi_id" name="upi_id"
-                               class="input-field"
-                               placeholder="yourname@paytm">
-                        <p class="text-xs text-neutral-500 mt-2">Helps us verify your payment faster</p>
-                    </div>
-
-                    <div>
-                        <label for="payment_proof" class="block text-sm font-semibold text-gray-700 mb-2">
-                            Payment Screenshot <span class="text-gray-400">(Optional but recommended)</span>
-                        </label>
-                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 border-dashed rounded-lg hover:border-teal-400 transition-colors">
-                            <div class="space-y-1 text-center">
-                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <div class="flex text-sm text-gray-600">
-                                    <label for="payment_proof" class="relative cursor-pointer bg-white rounded-md font-medium text-teal-600 hover:text-teal-500 focus-within:outline-none">
-                                        <span>Upload a file</span>
-                                        <input type="file" id="payment_proof" name="payment_proof" accept="image/*" class="sr-only">
-                                    </label>
-                                    <p class="pl-1">or drag and drop</p>
-                                </div>
-                                <p class="text-xs text-neutral-500">PNG, JPG, GIF up to 10MB</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-primary w-full text-lg py-4">
-                        Confirm Order & Complete Payment
-                    </button>
-                </form>
+                <div class="border-t border-gray-200 pt-3 mt-3 flex justify-between">
+                    <span class="font-bold text-gray-900">Total</span>
+                    <span class="text-2xl font-bold text-teal-600">₹{{ product.price }}</span>
+                </div>
             </div>
         </div>
 
-        <!-- Sidebar -->
-        <div class="lg:col-span-1">
-            <div class="bg-white rounded-xl shadow-lg p-6 sticky top-20">
-                <h3 class="text-lg font-bold text-gray-900 mb-4">What's Next?</h3>
-                <div class="space-y-4">
-                    <div class="flex gap-3">
-                        <div class="flex-shrink-0">
-                            <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
-                                <span class="text-teal-600 font-bold text-sm">1</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-charcoal-900">Make Payment</p>
-                            <p class="text-sm text-neutral-600">Send ₹{{ product.price }} to our UPI ID</p>
-                        </div>
+        <!-- Payment Method Card -->
+        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-6">
+            <h2 class="text-lg font-bold text-gray-900 mb-4">Payment Details</h2>
+            
+            <!-- UPI Display Box -->
+            <div class="bg-gradient-to-br from-teal-50 via-blue-50 to-cyan-50 border-2 border-teal-200 rounded-xl p-4 sm:p-6 mb-6">
+                <p class="text-xs text-gray-600 mb-2">Send payment to:</p>
+                <div class="flex items-start justify-between gap-3 mb-4">
+                    <div>
+                        <p class="text-lg font-bold text-teal-700 break-all">{{ upi_id }}</p>
                     </div>
-                    <div class="flex gap-3">
-                        <div class="flex-shrink-0">
-                            <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
-                                <span class="text-teal-600 font-bold text-sm">2</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-charcoal-900">Submit Details</p>
-                            <p class="text-sm text-neutral-600">Enter transaction ID and confirm</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-3">
-                        <div class="flex-shrink-0">
-                            <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
-                                <span class="text-teal-600 font-bold text-sm">3</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-charcoal-900">Get Access</p>
-                            <p class="text-sm text-neutral-600">Download your product after verification</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-6 border-t border-neutral-200">
-                    <div class="bg-teal-50 border border-teal-200 rounded-lg p-4">
-                        <div class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                            </svg>
-                            <div>
-                                <p class="font-semibold text-teal-900">Secure Payment</p>
-                                <p class="text-sm text-teal-700 mt-1">Your payment is processed securely via UPI</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {% if product.is_digital %}
-                <div class="mt-4 bg-teal-50 border border-teal-200 rounded-lg p-4">
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"></path>
+                    <button onclick="copyUPI()" class="flex-shrink-0 bg-black text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-teal-700 transition-all active:scale-95 text-sm font-medium flex items-center gap-1.5">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                         </svg>
-                        <div>
-                            <p class="font-semibold text-teal-900">Instant Download</p>
-                            <p class="text-sm text-teal-700 mt-1">Get instant access after payment verification</p>
-                        </div>
+                        <span class="hidden sm:inline">Copy</span>
+                    </button>
+                </div>
+
+                <!-- QR Code -->
+                {% if upi_qr_code %}
+                <div class="border-t border-teal-200 pt-4">
+                    <p class="text-xs text-gray-600 text-center mb-3">Or scan to pay:</p>
+                    <div class="flex justify-center">
+                        <img src="data:image/png;base64,{{ upi_qr_code }}" alt="UPI QR Code" class="w-40 h-40 sm:w-48 sm:h-48 border-4 border-white rounded-xl shadow-md">
                     </div>
                 </div>
                 {% endif %}
             </div>
+
+            <!-- Instructions -->
+            <div class="bg-teal-50 border-l-4 border-teal-600 rounded-lg p-4 mb-6">
+                <h3 class="font-semibold text-teal-900 mb-3 text-sm flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                    </svg>
+                    Steps to Complete
+                </h3>
+                <ol class="space-y-2 text-sm text-teal-800">
+                    <li class="flex gap-2">
+                        <span class="font-bold flex-shrink-0">1.</span>
+                        <span>Open any UPI app (PhonePe, Google Pay, Paytm)</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="font-bold flex-shrink-0">2.</span>
+                        <span>Send <strong>₹{{ product.price }}</strong> to <strong>{{ upi_id }}</strong></span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="font-bold flex-shrink-0">3.</span>
+                        <span>Copy the transaction ID from your app</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="font-bold flex-shrink-0">4.</span>
+                        <span>Enter it below and submit</span>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Form -->
+            <form method="post" action="{% url 'store:create_order' product.id %}" enctype="multipart/form-data" class="space-y-4 sm:pb-0 pb-4">
+                {% csrf_token %}
+                
+                <!-- Transaction ID -->
+                <div>
+                    <label for="upi_transaction_id" class="block text-sm font-semibold text-gray-700 mb-2">
+                        Transaction ID <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" id="upi_transaction_id" name="upi_transaction_id" required
+                           class="w-full px-3 py-2.5 sm:px-4 sm:py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all"
+                           placeholder="e.g., TXN123456789">
+                    <p class="text-xs text-gray-500 mt-1">Find this in your payment app history</p>
+                </div>
+
+                <!-- UPI ID (Optional) -->
+                <div>
+                    <label for="upi_id" class="block text-sm font-semibold text-gray-700 mb-2">
+                        Your UPI ID <span class="text-gray-400 font-normal">(Optional)</span>
+                    </label>
+                    <input type="text" id="upi_id" name="upi_id"
+                           class="w-full px-3 py-2.5 sm:px-4 sm:py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all"
+                           placeholder="yourname@paytm">
+                </div>
+
+                <!-- Screenshot Upload -->
+                <div>
+                    <label for="payment_proof" class="block text-sm font-semibold text-gray-700 mb-2">
+                        Payment Screenshot <span class="text-gray-400 font-normal">(Recommended)</span>
+                    </label>
+                    <div class="relative mt-2 flex justify-center px-4 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-teal-400 transition-colors cursor-pointer" onclick="document.getElementById('payment_proof').click()">
+                        <div class="space-y-1 text-center" id="upload-placeholder">
+                            <svg class="mx-auto h-10 w-10 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div class="text-sm text-gray-600">
+                                <p>Tap to upload</p>
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG up to 10MB</p>
+                        </div>
+                        <input type="file" id="payment_proof" name="payment_proof" accept="image/*" class="sr-only">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="fixed bg-white/90 bottom-0 left-0 right-0 p-3 md:px-80">
+                    <button type="submit" class="w-full rounded-lg bg-teal-600 hover:bg-teal-700 active:scale-95 text-white font-bold py-3 sm:py-4 px-4 transition-all shadow-lg hover:shadow-xl text-base sm:text-lg">
+                        Complete Payment
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Trust & Info Section -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl shadow-sm p-4 flex gap-3">
+                <svg class="w-6 h-6 text-teal-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                    <p class="font-semibold text-gray-900 text-sm">Secure Payment</p>
+                    <p class="text-xs text-gray-600">Verified via UPI</p>
+                </div>
+            </div>
+            
+            {% if product.is_digital %}
+            <div class="bg-white rounded-xl shadow-sm p-4 flex gap-3">
+                <svg class="w-6 h-6 text-teal-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"></path>
+                </svg>
+                <div>
+                    <p class="font-semibold text-gray-900 text-sm">Instant Access</p>
+                    <p class="text-xs text-gray-600">After verification</p>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -253,43 +217,34 @@
 <script>
 function copyUPI() {
     const upiId = '{{ upi_id }}';
-    navigator.clipboard.writeText(upiId).then(function() {
-        // Show success message
+    navigator.clipboard.writeText(upiId).then(() => {
         const btn = event.target.closest('button');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Copied!';
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span class="hidden sm:inline">Copied</span>';
         btn.classList.add('bg-green-600', 'hover:bg-green-700');
+        
         setTimeout(() => {
-            btn.innerHTML = originalText;
+            btn.innerHTML = originalHTML;
             btn.classList.remove('bg-green-600', 'hover:bg-green-700');
         }, 2000);
-    }, function(err) {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = upiId;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        alert('UPI ID copied to clipboard!');
+    }).catch(() => {
+        alert('Unable to copy UPI ID');
     });
 }
 
-// File upload preview
 document.getElementById('payment_proof')?.addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (file) {
         const reader = new FileReader();
-        reader.onload = function(e) {
-            const uploadArea = document.querySelector('.border-dashed');
-            if (uploadArea) {
-                uploadArea.innerHTML = `
-                    <div class="text-center">
-                        <img src="${e.target.result}" alt="Preview" class="mx-auto h-32 w-auto rounded-lg mb-2">
-                        <p class="text-sm text-gray-600">${file.name}</p>
-                    </div>
-                `;
-            }
+        reader.onload = (event) => {
+            const placeholder = document.getElementById('upload-placeholder');
+            placeholder.innerHTML = `
+                <div class="text-center">
+                    <img src="${event.target.result}" alt="Preview" class="mx-auto h-24 w-auto rounded-lg mb-2 shadow-md">
+                    <p class="text-sm text-gray-600 font-medium truncate">${file.name}</p>
+                    <p class="text-xs text-gray-500">✓ Ready to upload</p>
+                </div>
+            `;
         };
         reader.readAsDataURL(file);
     }

@@ -8,9 +8,17 @@
     <div class="flex flex-col md:flex-row gap-8 mb-12">
         <!-- Sidebar -->
         <aside class="w-full md:w-64 flex-shrink-0">
-            <div class="card p-6 sticky top-24">
-                <h3 class="text-xl font-bold text-charcoal-900 mb-6">Categories</h3>
-                <ul class="space-y-2">
+            <div class="card p-6 sticky top-24" onclick="document.getElementById('categories').classList.toggle('hidden');">
+                <div class="flex justify-between">
+                    <h3 class="text-xl font-bold text-charcoal-900">Categories</h3>
+                    <div class="md:hidden">
+                        <svg class="w-4 h-4 pt-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </div>
+                <ul class="space-y-2 mt-6 hidden md:block" id="categories">
                     <li>
                         <a href="{% url 'store:product_list' %}" class="block px-4 py-2 rounded-lg font-medium transition-all {% if not selected_category %}bg-teal-50 text-teal-700 border border-teal-200{% else %}text-charcoal-700 hover:bg-neutral-50{% endif %}">
                             All Categories
@@ -32,7 +40,8 @@
             <!-- Search Bar -->
             <form method="get" class="mb-8">
                 <div class="flex gap-3">
-                    <input type="text" name="q" value="{{ search_query }}" placeholder="Search products..." class="input-field flex-1 text-lg">
+                    <input type="text" name="q" value="{% if search_query %}{{ search_query }}{% endif %}" 
+                        placeholder="Search products..." class="input-field flex-1 text-lg">
                     <button type="submit" class="btn-primary px-8">
                         Search
                     </button>

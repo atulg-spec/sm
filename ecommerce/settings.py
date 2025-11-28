@@ -144,7 +144,7 @@ LOGIN_REDIRECT_URL = 'store:home'
 LOGOUT_REDIRECT_URL = 'store:home'
 
 # UPI Payment Settings
-UPI_ID = os.getenv('UPI_ID', 'yourname@upi')  # Your UPI ID for receiving payments
+UPI_ID = 'atulyag67-1@okhdfcbank'  # Your UPI ID for receiving payments
 UPI_QR_CODE = os.getenv('UPI_QR_CODE', '')  # Path to QR code image (optional)
 
 # Email Settings (for production)
