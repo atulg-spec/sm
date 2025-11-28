@@ -4,16 +4,19 @@
 {% block title %}{{ product.name }} - StartMarket{% endblock %}
 
 {% block meta_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
+{% block icon %}
+{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}{% endif %}
+{% endblock %}
 
 {% block og_title %}{{ product.name }} - StartMarket{% endblock %}
 {% block og_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
 {% block og_image %}
-{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}{% endif %}
+{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}{% endif %}
 {% endblock %}
 
 {% block twitter_title %}{{ product.name }} - StartMarket{% endblock %}
 {% block twitter_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
-{% block twitter_image %}{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}
+{% block twitter_image %}{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}
 {% endif %}
 {% endblock %}
 
@@ -24,7 +27,7 @@
         <div class="relative">
             {% if product.image %}
             <div class="relative overflow-hidden rounded-xl shadow-lg">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-full h-auto">
+                <img src="{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}" alt="{{ product.name }}" class="w-full h-auto">
             </div>
             {% else %}
             <div
