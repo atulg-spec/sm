@@ -47,6 +47,10 @@ class Product(models.Model):
     def is_free(self):
         return self.price == 0
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('store:product_detail', kwargs={'slug': self.slug})
+
 
 class Order(models.Model):
     STATUS_CHOICES = [
