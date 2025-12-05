@@ -5,18 +5,21 @@
 
 {% block meta_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
 {% block icon %}
-{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}{% endif %}
+{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{% static
+'img/og-image.jpg' %}{% endif %}
 {% endblock %}
 
 {% block og_title %}{{ product.name }} - StartMarket{% endblock %}
 {% block og_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
 {% block og_image %}
-{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}{% endif %}
+{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{% static
+'img/og-image.jpg' %}{% endif %}
 {% endblock %}
 
 {% block twitter_title %}{{ product.name }} - StartMarket{% endblock %}
 {% block twitter_description %}{{ product.description|striptags|truncatewords:25 }}{% endblock %}
-{% block twitter_image %}{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{% static 'img/og-image.jpg' %}
+{% block twitter_image %}{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{%
+else %}{% static 'img/og-image.jpg' %}
 {% endif %}
 {% endblock %}
 
@@ -27,7 +30,8 @@
         <div class="relative">
             {% if product.image %}
             <div class="relative overflow-hidden rounded-xl shadow-lg">
-                <img src="{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}" alt="{{ product.name }}" class="w-full h-auto">
+                <img src="{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}" alt="{{ product.name }}"
+                    class="w-full h-auto">
             </div>
             {% else %}
             <div
@@ -135,7 +139,7 @@
                 <div class="fixed bg-white/90 bottom-0 z-10 left-0 right-0 p-3 md:px-80">
                     <a href="{% url 'accounts:login' %}"
                         class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
-                        to Download Free</span></a>
+                            to Download Free</span></a>
                 </div>
                 <a href="{% url 'accounts:login' %}"
                     class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
@@ -185,7 +189,7 @@
                 </div>
                 <a href="{% url 'store:buy_now' product.id %}"
                     class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Buy
-                    Now</span><span class="text-xl">₹{{ product.price }}</span></a>
+                        Now</span><span class="text-xl">₹{{ product.price }}</span></a>
                 {% endif %}
                 {% else %}
                 <div class="fixed bg-white/90 bottom-0 z-10 left-0 right-0 p-3 md:px-80">
@@ -195,7 +199,7 @@
                 </div>
                 <a href="{% url 'accounts:login' %}"
                     class="btn-primary w-full text-center text-lg py-4 flex items-center justify-center gap-3"><span>Login
-                    to Buy</span><span class="text-xl">₹{{ product.price }}</span></a>
+                        to Buy</span><span class="text-xl">₹{{ product.price }}</span></a>
                 {% endif %}
             </div>
         </div>
@@ -236,21 +240,62 @@
 </div>
 
 <style>
-@media (max-width: 768px) {
-     {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        border-radius: 0;
-        z-index: 50;
-        margin: 0;
+    @media (max-width: 768px) {
+            {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            border-radius: 0;
+            z-index: 50;
+            margin: 0;
+        }
+
+        body {
+            padding-bottom: 80px;
+        }
     }
-    
-    body {
-        padding-bottom: 80px;
+</style>
+
+<!-- JSON-LD Product Structured Data for Google Search Console -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "{{ product.name }}",
+    "description": "{{ product.description|striptags|truncatewords:50 }}",
+    {% if product.image %}
+    "image": "{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}",
+    {% endif %}
+    "sku": "{{ product.id }}",
+    "brand": {
+        "@type": "Brand",
+        "name": "StartMarket"
+    },
+    {% if product.category %}
+    "category": "{{ product.category.name }}",
+    {% endif %}
+    "offers": {
+        "@type": "Offer",
+        "url": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+        "priceCurrency": "INR",
+        "price": "{{ product.price }}",
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+            "@type": "Organization",
+            "name": "StartMarket"
+        },
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "IN",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 7,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+        }
     }
 }
-</style>
+</script>
 {% endblock %}
