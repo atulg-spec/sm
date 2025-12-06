@@ -76,10 +76,22 @@
                     <p class="text-neutral-600 mb-4 text-sm line-clamp-2">
                         {{product.short_description|truncatewords:15}}
                     </p>
+                    {% if product.is_free %}
+                    <a href="{% url 'store:product_detail' product.slug %}"
+                        class="w-full inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200"
+                        onclick="event.stopPropagation();">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        <span>Free Download</span>
+                    </a>
+                    {% else %}
                     <div class="flex items-center justify-between">
                         <span class="text-2xl font-bold text-teal-600">₹{{ product.price }}</span>
                         <span class="text-teal-600 font-semibold text-sm">View →</span>
                     </div>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
@@ -109,34 +121,45 @@
         <p class="text-neutral-600">Download instantly - no payment required</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for product in free_products %}
-            <div class="card-hover group cursor-pointer animate-slide-up"
-                onclick="window.location.href='{% url 'store:product_detail' product.slug %}'">
-                {% if product.image %}
-                <div class="relative overflow-hidden bg-white h-48 flex items-center justify-center">
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}"
-                        class="max-w-full max-h-48 object-contain transform group-hover:scale-105 transition-transform duration-500">
-                    <div
-                        class="absolute top-4 left-4 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        FREE
+            <div class="card-hover group animate-slide-up">
+                <a href="{% url 'store:product_detail' product.slug %}" class="block">
+                    {% if product.image %}
+                    <div class="relative overflow-hidden bg-white h-48 flex items-center justify-center">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}"
+                            class="max-w-full max-h-48 object-contain transform group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 left-4 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                            FREE
+                        </div>
                     </div>
-                </div>
-                {% else %}
-                <div
-                    class="w-full h-48 bg-gradient-to-br from-teal-600 to-teal-700 flex items-center justify-center relative overflow-hidden">
-                    <span class="text-white text-4xl font-bold">{{ product.name|first }}</span>
+                    {% else %}
                     <div
-                        class="absolute top-4 left-4 bg-white text-teal-600 px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        FREE
+                        class="w-full h-48 bg-gradient-to-br from-teal-600 to-teal-700 flex items-center justify-center relative overflow-hidden">
+                        <span class="text-white text-4xl font-bold">{{ product.name|first }}</span>
+                        <div
+                            class="absolute top-4 left-4 bg-white text-teal-600 px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                            FREE
+                        </div>
                     </div>
-                </div>
-                {% endif %}
-                <div class="p-5">
-                    <h3
-                        class="font-bold text-charcoal-900 mb-2 text-lg group-hover:text-teal-600 transition-colors line-clamp-2">
-                        {{ product.name }}</h3>
-                    <p class="text-xl font-bold text-teal-600 mb-2">FREE</p>
-                    <p class="text-neutral-600 text-sm line-clamp-2">{{ product.short_description|truncatewords:15 }}
-                    </p>
+                    {% endif %}
+                    <div class="p-5">
+                        <h3
+                            class="font-bold text-charcoal-900 mb-2 text-lg group-hover:text-teal-600 transition-colors line-clamp-2">
+                            {{ product.name }}</h3>
+                        <p class="text-neutral-600 text-sm line-clamp-2 mb-4">
+                            {{product.short_description|truncatewords:15}}
+                        </p>
+                    </div>
+                </a>
+                <div class="px-5 pb-5">
+                    <a href="{% url 'store:product_detail' product.slug %}"
+                        class="w-full inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        <span>Free Download</span>
+                    </a>
                 </div>
             </div>
             {% endfor %}
@@ -182,7 +205,19 @@
                     <h3
                         class="font-bold text-charcoal-900 mb-2 text-lg group-hover:text-teal-600 transition-colors line-clamp-2">
                         {{ product.name|truncatewords:5 }}</h3>
+                    {% if product.is_free %}
+                    <a href="{% url 'store:product_detail' product.slug %}"
+                        class="w-full inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors duration-200 text-sm"
+                        onclick="event.stopPropagation();">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        <span>Free Download</span>
+                    </a>
+                    {% else %}
                     <p class="text-xl font-bold text-teal-600">₹{{ product.price }}</p>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}

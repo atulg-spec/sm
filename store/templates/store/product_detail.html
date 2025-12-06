@@ -106,7 +106,7 @@ else %}{% static 'img/og-image.jpg' %}
                 {% if product.is_free %}
                 {% if user.is_authenticated %}
                 <div class="fixed bg-white/90 bottom-0 z-10 left-0 right-0 p-3 md:px-80">
-                    <a href="{% if item.product.digital_file %}{{item.product.digital_file.url}}{% endif %}"
+                    <a href="{% url 'store:download_product' product.id %}"
                         class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
                             class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -114,7 +114,7 @@ else %}{% static 'img/og-image.jpg' %}
                         </svg>Download Free</a>
                 </div>
 
-                <a href="{% if item.product.digital_file %}{{item.product.digital_file.url}}{% endif %}"
+                <a href="{% url 'store:download_product' product.id %}"
                     class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
                         class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -152,14 +152,14 @@ else %}{% static 'img/og-image.jpg' %}
                 {% elif user.is_authenticated %}
                 {% if has_purchased %}
                 <div class="fixed bg-white/90 bottom-0 z-10 left-0 right-0 p-3 md:px-80">
-                    <a href="{% if item.product.digital_file %}{{item.product.digital_file.url}}{% endif %}"
+                    <a href="{% url 'store:download_product' product.id %}"
                         class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
                             class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                         </svg>Download Now</a>
                 </div>
-                <a href="{% if item.product.digital_file %}{{item.product.digital_file.url}}{% endif %}"
+                <a href="{% url 'store:download_product' product.id %}"
                     class="btn-success w-full text-center text-lg py-4 flex items-center justify-center gap-3"><svg
                         class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -230,7 +230,21 @@ else %}{% static 'img/og-image.jpg' %}
                     <h3 class="font-bold text-charcoal-900 mb-2 text-lg group-hover:text-teal-600 transition-colors">
                         {{ related_product.name|truncatewords:5 }}
                     </h3>
-                    <p class="text-xl font-bold text-teal-600">₹{{ related_product.price }}</p>
+                    <p class="text-xl font-bold text-teal-600">
+                        {% if related_product.is_free %}
+                        <a href="{% url 'store:product_detail' related_product.slug %}"
+                            class="w-full inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors duration-200 text-sm"
+                            onclick="event.stopPropagation();">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                            <span>Free Download</span>
+                        </a>
+                        {% else %}
+                        ₹{{ related_product.price }}
+                        {% endif %}
+                    </p>
                 </div>
             </div>
             {% endfor %}
