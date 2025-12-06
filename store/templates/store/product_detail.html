@@ -29,9 +29,9 @@ else %}{% static 'img/og-image.jpg' %}
         <!-- Product Image -->
         <div class="relative">
             {% if product.image %}
-            <div class="relative overflow-hidden rounded-xl shadow-lg">
+            <div class="relative overflow-hidden rounded-xl shadow-lg bg-white" style="aspect-ratio: 4/3;">
                 <img src="{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}" alt="{{ product.name }}"
-                    class="w-full h-auto">
+                    class="w-full h-full object-contain">
             </div>
             {% else %}
             <div
@@ -216,9 +216,9 @@ else %}{% static 'img/og-image.jpg' %}
             <div class="card-hover group cursor-pointer"
                 onclick="window.location.href='{% url 'store:product_detail' related_product.slug %}'">
                 {% if related_product.image %}
-                <div class="relative overflow-hidden"><img src="{{ related_product.image.url }}"
-                        alt="{{ related_product.name }}"
-                        class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                <div class="relative overflow-hidden bg-white h-48 flex items-center justify-center"><img
+                        src="{{ related_product.image.url }}" alt="{{ related_product.name }}"
+                        class="max-w-full max-h-48 object-contain transform group-hover:scale-105 transition-transform duration-500">
                 </div>
                 {% else %}
                 <div

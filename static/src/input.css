@@ -49,6 +49,16 @@
   .accent-highlight {
     @apply bg-ivory-100 text-charcoal-800 border border-ivory-300;
   }
+  
+  /* Product image container - handles portrait images (height > width) */
+  /* Image height matches container, width adjusts proportionally, white space on sides */
+  .product-img-container {
+    @apply bg-white flex items-center justify-center;
+  }
+  
+  .product-img-container img {
+    @apply w-full h-full object-contain;
+  }
 }
 
 @layer utilities {
