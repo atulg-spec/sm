@@ -70,10 +70,12 @@
                 </div>
                 {% endif %}
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-charcoal-900 mb-3 group-hover:text-teal-600 transition-colors">{{
-                        product.name }}</h3>
-                    <p class="text-neutral-600 mb-4 text-sm line-clamp-2">{{ product.short_description|truncatewords:15
-                        }}</p>
+                    <h3 class="text-xl font-bold text-charcoal-900 mb-3 group-hover:text-teal-600 transition-colors">
+                        {{product.name}}
+                    </h3>
+                    <p class="text-neutral-600 mb-4 text-sm line-clamp-2">
+                        {{product.short_description|truncatewords:15}}
+                    </p>
                     <div class="flex items-center justify-between">
                         <span class="text-2xl font-bold text-teal-600">₹{{ product.price }}</span>
                         <span class="text-teal-600 font-semibold text-sm">View →</span>
@@ -205,8 +207,9 @@
                     class="w-16 h-16 bg-teal-100 rounded-xl mx-auto mb-4 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
                     <span class="text-3xl">📦</span>
                 </div>
-                <h3 class="font-semibold text-charcoal-900 group-hover:text-teal-600 transition-colors">{{ category.name
-                    }}</h3>
+                <h3 class="font-semibold text-charcoal-900 group-hover:text-teal-600 transition-colors">
+                    {{category.name}}
+                </h3>
             </a>
             {% endfor %}
         </div>
