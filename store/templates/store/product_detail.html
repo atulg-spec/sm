@@ -66,8 +66,21 @@ else %}{% static 'img/og-image.jpg' %}
                     class="px-3 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded-full border border-teal-200">DIGITAL</span>
                 {% endif %}
             </div>
-            <div class="prose max-w-none">
-                <p class="text-neutral-700 text-lg leading-relaxed">{{ product.description }}</p>
+            <!-- Product Description with Markdown -->
+            <div class="prose prose-lg max-w-none 
+                prose-headings:text-charcoal-900 prose-headings:font-bold
+                prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-neutral-200
+                prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-h3:text-teal-700
+                prose-p:text-neutral-700 prose-p:leading-relaxed
+                prose-strong:text-charcoal-900
+                prose-ul:my-4 prose-li:text-neutral-700
+                prose-table:border-collapse prose-table:w-full prose-table:my-6
+                prose-th:bg-teal-50 prose-th:text-left prose-th:px-4 prose-th:py-3 prose-th:border prose-th:border-neutral-200 prose-th:font-semibold prose-th:text-charcoal-900
+                prose-td:px-4 prose-td:py-3 prose-td:border prose-td:border-neutral-200
+                prose-hr:my-8 prose-hr:border-neutral-200
+                prose-a:text-teal-600 prose-a:no-underline hover:prose-a:underline">
+                {% load markdown_extras %}
+                {{ product.description|markdown }}
             </div>
             <!-- Features -->
             <div class="bg-neutral-50 rounded-xl p-6 border border-neutral-200">
