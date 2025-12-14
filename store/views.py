@@ -161,6 +161,11 @@ def download_product(request, product_id):
     
     # Free products can be downloaded instantly without purchase
     if product.is_free:
+        # Check if external URL is provided
+        if product.external_download_url:
+            # Redirect to external URL - will open in new tab via template
+            return redirect(product.external_download_url)
+        
         if not product.digital_file:
             messages.error(request, "This product doesn't have a downloadable file.")
             return redirect('store:product_detail', slug=product.slug)
@@ -196,6 +201,11 @@ def download_product(request, product_id):
         else:
             messages.error(request, "You haven't purchased this product or your payment is still pending verification.")
             return redirect('store:product_detail', slug=product.slug)
+    
+    # Check if external URL is provided
+    if product.external_download_url:
+        # Redirect to external URL - will open in new tab via template
+        return redirect(product.external_download_url)
     
     if not product.digital_file:
         messages.error(request, "This product doesn't have a downloadable file.")

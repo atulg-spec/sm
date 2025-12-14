@@ -28,6 +28,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='products')
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     digital_file = models.FileField(upload_to='digital_products/', blank=True, null=True)
+    external_download_url = models.URLField(max_length=500, blank=True, null=True, help_text="Third-party download URL (if provided, this will be used instead of digital_file)")
     featured = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -41,7 +42,7 @@ class Product(models.Model):
 
     @property
     def is_digital(self):
-        return bool(self.digital_file)
+        return bool(self.digital_file or self.external_download_url)
     
     @property
     def is_free(self):
