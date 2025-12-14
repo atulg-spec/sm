@@ -27,6 +27,8 @@ def home(request):
 
 
 def product_list(request):
+    from django.core.paginator import Paginator
+    
     products = Product.objects.filter(active=True)
     category_slug = request.GET.get('category')
     search_query = request.GET.get('q')
@@ -41,13 +43,41 @@ def product_list(request):
             Q(description__icontains=search_query)
         )
     
+    # Pagination - 12 products per page
+    paginator = Paginator(products, 12)
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+    
+    # Handle AJAX requests for infinite scroll
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        products_data = []
+        for product in page_obj:
+            products_data.append({
+                'id': str(product.id),
+                'name': product.name,
+                'slug': product.slug,
+                'short_description': product.short_description,
+                'price': str(product.price),
+                'image_url': product.image.url if product.image else None,
+                'is_free': product.is_free,
+                'featured': product.featured,
+            })
+        
+        return JsonResponse({
+            'products': products_data,
+            'has_next': page_obj.has_next(),
+            'current_page': page_obj.number,
+            'total_pages': paginator.num_pages,
+        })
+    
     categories = Category.objects.all()
     
     context = {
-        'products': products,
+        'page_obj': page_obj,
         'categories': categories,
         'selected_category': category_slug,
         'search_query': search_query,
+        'total_count': paginator.count,
     }
     return render(request, 'store/product_list.html', context)
 

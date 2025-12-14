@@ -57,16 +57,18 @@
             </form>
 
             <!-- Results -->
-            {% if products %}
+            {% if page_obj %}
             <div class="mb-6">
                 <p class="text-neutral-600 font-medium">
-                    Found <span class="text-teal-600 font-bold text-xl">{{ products.count }}</span>
-                    product{{products.count|pluralize}}
+                    Found <span class="text-teal-600 font-bold text-xl">{{ total_count }}</span>
+                    product{{ total_count|pluralize }}
                 </p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {% for product in products %}
-                <div class="card-hover group cursor-pointer animate-slide-up"
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                data-current-page="{{ page_obj.number }}" data-has-next="{{ page_obj.has_next|yesno:'true,false' }}"
+                data-category="{{ selected_category|default:'' }}" data-search="{{ search_query|default:'' }}">
+                {% for product in page_obj %}
+                <div class="card-hover group cursor-pointer animate-slide-up product-card"
                     onclick="window.location.href='{% url 'store:product_detail' product.slug %}'">
                     {% if product.image %}
                     <div class="relative overflow-hidden bg-white h-56 flex items-center justify-center">
@@ -91,7 +93,7 @@
                                 {{ product.name }}</h3>
                         </div>
                         <p class="text-neutral-600 mb-4 text-sm line-clamp-2">
-                            {{product.short_description|truncatewords:20 }}
+                            {{ product.short_description|truncatewords:20 }}
                         </p>
                         {% if product.is_free %}
                         <a href="{% url 'store:product_detail' product.slug %}"
@@ -113,6 +115,18 @@
                 </div>
                 {% endfor %}
             </div>
+
+            <!-- Loading Spinner -->
+            <div id="loading-spinner" class="hidden text-center py-12">
+                <div
+                    class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-teal-200 border-t-teal-600">
+                </div>
+                <p class="mt-4 text-neutral-600 font-medium">Loading more products...</p>
+            </div>
+
+            <!-- Sentinel element for intersection observer -->
+            <div id="scroll-sentinel" class="h-4"></div>
+
             {% else %}
             <div class="text-center py-20">
                 <div class="w-32 h-32 bg-neutral-100 rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -126,6 +140,129 @@
                 <a href="{% url 'store:product_list' %}" class="btn-primary">Browse All Products</a>
             </div>
             {% endif %}
+
+            <script>
+                // Infinite Scroll Implementation
+                (function () {
+                    const grid = document.getElementById('products-grid');
+                    if (!grid) return; // Exit if no products grid
+
+                    const spinner = document.getElementById('loading-spinner');
+                    const sentinel = document.getElementById('scroll-sentinel');
+                    let isLoading = false;
+
+                    // Create product card HTML
+                    function createProductCard(product) {
+                        const imageHtml = product.image_url
+                            ? `<div class="relative overflow-hidden bg-white h-56 flex items-center justify-center">
+                                <img src="${product.image_url}" alt="${product.name}"
+                                    class="max-w-full max-h-56 object-contain transform group-hover:scale-105 transition-transform duration-500">
+                                ${product.featured ? '<div class="absolute top-4 left-4 accent-highlight px-3 py-1 rounded-full text-xs font-bold">Featured</div>' : ''}
+                               </div>`
+                            : `<div class="w-full h-56 bg-gradient-to-br from-charcoal-600 to-charcoal-700 flex items-center justify-center">
+                                <span class="text-white text-5xl font-bold">${product.name.charAt(0)}</span>
+                               </div>`;
+
+                        const actionHtml = product.is_free
+                            ? `<a href="/products/${product.slug}/"
+                                class="w-full inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200"
+                                onclick="event.stopPropagation();">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                                <span>Free Download</span>
+                               </a>`
+                            : `<div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-teal-600">₹${product.price}</span>
+                                <span class="text-teal-600 font-semibold text-sm">View →</span>
+                               </div>`;
+
+                        const truncatedDesc = product.short_description.split(' ').slice(0, 20).join(' ') +
+                            (product.short_description.split(' ').length > 20 ? '...' : '');
+
+                        return `
+                            <div class="card-hover group cursor-pointer animate-slide-up product-card"
+                                onclick="window.location.href='/products/${product.slug}/'">
+                                ${imageHtml}
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <h3 class="text-xl font-bold text-charcoal-900 group-hover:text-teal-600 transition-colors line-clamp-2 flex-1">
+                                            ${product.name}
+                                        </h3>
+                                    </div>
+                                    <p class="text-neutral-600 mb-4 text-sm line-clamp-2">
+                                        ${truncatedDesc}
+                                    </p>
+                                    ${actionHtml}
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    // Load more products
+                    async function loadMoreProducts() {
+                        if (isLoading) return;
+
+                        const hasNext = grid.dataset.hasNext === 'true';
+                        if (!hasNext) return;
+
+                        isLoading = true;
+                        spinner.classList.remove('hidden');
+
+                        const currentPage = parseInt(grid.dataset.currentPage);
+                        const nextPage = currentPage + 1;
+                        const category = grid.dataset.category;
+                        const search = grid.dataset.search;
+
+                        // Build URL with query parameters
+                        const params = new URLSearchParams({ page: nextPage });
+                        if (category) params.append('category', category);
+                        if (search) params.append('q', search);
+
+                        try {
+                            const response = await fetch(`?${params.toString()}`, {
+                                headers: {
+                                    'X-Requested-With': 'XMLHttpRequest'
+                                }
+                            });
+
+                            if (!response.ok) throw new Error('Network response was not ok');
+
+                            const data = await response.json();
+
+                            // Add new products to grid
+                            data.products.forEach(product => {
+                                const cardHtml = createProductCard(product);
+                                grid.insertAdjacentHTML('beforeend', cardHtml);
+                            });
+
+                            // Update pagination state
+                            grid.dataset.currentPage = data.current_page;
+                            grid.dataset.hasNext = data.has_next ? 'true' : 'false';
+
+                        } catch (error) {
+                            console.error('Error loading products:', error);
+                        } finally {
+                            isLoading = false;
+                            spinner.classList.add('hidden');
+                        }
+                    }
+
+                    // Set up Intersection Observer
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                loadMoreProducts();
+                            }
+                        });
+                    }, {
+                        rootMargin: '200px' // Start loading 200px before reaching the sentinel
+                    });
+
+                    observer.observe(sentinel);
+                })();
+            </script>
         </div>
     </div>
 </div>
