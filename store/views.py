@@ -17,6 +17,14 @@ def home(request):
     free_products = Product.objects.filter(price=0, active=True)[:6]
     categories = Category.objects.all()[:6]
     
+    # Track User IP if logged in (for users who missed the login signal)
+    if request.user.is_authenticated:
+        try:
+            from accounts.utils import update_user_ip_info
+            update_user_ip_info(request.user, request)
+        except Exception:
+            pass # Fail silently to avoiding crashing homepage
+    
     context = {
         'featured_products': featured_products,
         'latest_products': latest_products,

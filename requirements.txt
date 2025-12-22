@@ -4,4 +4,7 @@ django-crispy-forms==2.1
 crispy-tailwind==0.5.0
 python-dotenv==1.0.0
 whitenoise==6.6.0
+requests
+django-ipware
+
 
