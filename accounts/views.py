@@ -13,6 +13,9 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
             login(request, user)
+            next_url = request.GET.get('next')
+            if next_url:
+                return redirect(next_url)
             return redirect('store:home')
     else:
         form = CustomUserCreationForm()
