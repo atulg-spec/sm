@@ -19,3 +19,24 @@ class UserProfileAdmin(admin.ModelAdmin):
             'fields': ('lat', 'lon', 'isp', 'timezone', 'updated_at')
         }),
     )
+
+# Inline for RecentlyViewed
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import User
+from store.models import RecentlyViewed
+
+class RecentlyViewedInline(admin.TabularInline):
+    model = RecentlyViewed
+    extra = 0
+    readonly_fields = ('product', 'viewed_at')
+    can_delete = False
+    
+    def has_add_permission(self, request, obj=None):
+        return False
+
+# Unregister and Re-register User
+admin.site.unregister(User)
+
+@admin.register(User)
+class UserAdmin(BaseUserAdmin):
+    inlines = (RecentlyViewedInline,)

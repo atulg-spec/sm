@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.http import JsonResponse, FileResponse, Http404
 from django.conf import settings
 import os
-from .models import Product, Category, Order, OrderItem
+from .models import Product, Category, Order, OrderItem, RecentlyViewed
 import qrcode
 import io
 import base64
@@ -101,6 +101,14 @@ def product_detail(request, slug):
     has_purchased = False
     can_download = False
     if request.user.is_authenticated:
+        # Record view
+        RecentlyViewed.objects.update_or_create(user=request.user, product=product)
+        
+        # Ensure only latest 10 are kept
+        recent_ids = list(RecentlyViewed.objects.filter(user=request.user).values_list('id', flat=True)[:10])
+        if recent_ids:
+            RecentlyViewed.objects.filter(user=request.user).exclude(id__in=recent_ids).delete()
+
         if product.is_free:
             can_download = True  # Free products can be downloaded instantly
         else:

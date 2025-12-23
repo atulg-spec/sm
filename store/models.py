@@ -91,7 +91,23 @@ class OrderItem(models.Model):
     def __str__(self):
         return f"{self.quantity} x {self.product.name}"
 
+
     @property
     def total_price(self):
         return self.price * self.quantity
+
+
+class RecentlyViewed(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recently_viewed')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    viewed_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-viewed_at']
+        unique_together = ('user', 'product')
+        verbose_name_plural = "Recently Viewed Items"
+
+    def __str__(self):
+        return f"{self.user.username} viewed {self.product.name}"
+
 
