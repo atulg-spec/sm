@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import Category, Product, Order, OrderItem
+from .models import Category, Product, Order, OrderItem, RecentlyViewed
 
+
+admin.site.register(RecentlyViewed)
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
