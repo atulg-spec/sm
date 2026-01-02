@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 import uuid
+from PIL import Image
+from io import BytesIO
+from django.core.files.base import ContentFile
+import os
 
 
 class Category(models.Model):
@@ -44,6 +48,33 @@ class Product(models.Model):
     def is_digital(self):
         return bool(self.digital_file or self.external_download_url)
     
+    def save(self, *args, **kwargs):
+        if self.image:
+            try:
+                # Open image using Pillow
+                img = Image.open(self.image)
+                
+                # Check if image needs optimization (width > 1200 or not WebP)
+                if img.width > 1200 or img.format != 'WEBP':
+                    output = BytesIO()
+                    
+                    # Resize if too large
+                    if img.width > 1200:
+                        new_height = int((1200 / img.width) * img.height)
+                        img = img.resize((1200, new_height), Image.Resampling.LANCZOS)
+                    
+                    # Convert to WebP
+                    img.save(output, format='WEBP', quality=85)
+                    output.seek(0)
+                    
+                    # Update image field
+                    new_image_name = self.image.name.split('.')[0] + '.webp'
+                    self.image.save(new_image_name, ContentFile(output.read()), save=False)
+            except Exception as e:
+                print(f"Error optimizing image: {e}")
+                
+        super().save(*args, **kwargs)
+
     @property
     def is_free(self):
         return self.price == 0
